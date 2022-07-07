@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+</head>
+<body>
+<table border="2">
+    <tr>
+        <th>Quý</th>
+        <th>Tháng</th>
+        <th>Doanh thu</th>
+    </tr>
+    <tr>
+        <td rowspan="3">Một</td>
+        <td>Một</td>
+        <td>$100</td>
+    </tr>
+    <tr>
+        <td>Hai</td>
+        <td>$80</td>
+    </tr>
+    <tr>
+        <td>Ba</td>
+        <td>$80</td>
+    </tr>
+    <tr>
+        <td rowspan="3">Hai</td>
+        <td>Bốn</td>
+        <td>$100</td>
+    </tr>
+    <tr>
+        <td>Năm</td>
+        <td>$80</td>
+    </tr>
+    <tr>
+        <td>Sáu</td>
+        <td>$80</td>
+    </tr>
+</table>
+<form action="/action_page.php">
+    <fieldset>
+        <legend>Personal information</legend>
+
+        First name: <br>
+        <input type="text" name="fn" value="Hoai"><br>
+        Last name: <br>
+        <input type="text" name="ln" value="Nam"><br>
+        <br>
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+<br>
+<form action="/action_page.php">
+    Sở thích:<br/>
+    <label><input name="hobby" value="travel" type="radio" checked/> Du lịch</label><br>
+    <label><input name="hobby" value="sport" type="radio"/> Thể thao</label> <br/>
+    <label><input name="hobby" value="cooking" type="radio"/> Nấu ăn</label> <br/>
+    <input type="submit" value="Submit">
+</form>
+<br>
+<form method="post">
+    <textarea cols="50" rows="4"> </textarea>
+</form>
+<br>
+<select name="city" multiple>
+    <option value="Hn">Hà Nội</option>
+    <option value="Hp">Hải Phòng</option>
+    <option value="HU">Huế</option>
+    <option value="DN">Đà Nẵng</option>
+    <option value="SG">Sài Gòn</option>
+</select>
+</body>
+</html>
