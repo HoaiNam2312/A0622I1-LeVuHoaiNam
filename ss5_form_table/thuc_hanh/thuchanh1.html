@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Form</title>
+    <style>
+        p.normal {
+            border: 2px solid red;
+            padding: 10px;
+            margin: 20px 0px 20px;
+        }
+
+        p.round1 {
+            border: 2px solid red;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        p.round2 {
+            border: 2px solid red;
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        p.round3 {
+            border: 2px solid red;
+            border-radius: 12px;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
-<form action="/action_page.php">
-    <label for="account">Account</label><br>
-    <input type="text" name="account" id="account"><br><br>
-    <label for="pw">Pass word</label><br>
-    <input type="password" name="pw" id="pw"><br><br>
-    <input type="submit"  value="Submit">
-</form>
+
+<h2>The border-radius Property</h2>
+<p>This property is used to add rounded borders to an element:</p>
+
+<p class="normal">Normal border</p>
+<p class="round1">Round border</p>
+<p class="round2">Rounder border</p>
+<p class="round3">Roundest border</p>
+
 </body>
 </html>
