@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng chuyển đổi tiền tệ</title>
+    <style>
+        td, th{
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From Curency</th>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="number" id="sotiendoi"></td>
+        <td>
+            <select name="tiencandoi" id="tiencandoi">
+                <option value="vietnam" class="sotiencanphaidoi">Việt Nam</option>
+                <option value="thai">Thái</option>
+                <option value="han">Hàn</option>
+                <option value="nhat">Nhật</option>
+            </select>
+        </td>
+        <td>
+            <select name="tiendoi" id="tiendoi">
+                <option value="my" class="sotiendoiduoc">USD</option>
+                <option value="hanquoc">Won</option>
+                <option value="nhatban">Yen</option>
+                <option value="thailan">Bat</option>
+            </select>
+        </td>
+        <td><button type="button" value="Convert" onclick="inratien()">Convert</button></td>
+    </tr>
+</table>
+<script>
+// let sotiencandoi = document.getElementById("sotiendoi").value;
+ function inratien() {
+    let donvicandoi = document.getElementById("tiencandoi").value;
+    let donvidoi = document.getElementById("tiendoi").value;
+    // document.write(donvicandoi);
+    // document.write(donvidoi);
+    if (donvicandoi == "vietnam" && donvidoi == "my") {
+        let sotiencandoi = document.getElementById("sotiendoi").value;
+        let sotiendadoi = sotiencandoi * 0.000043;
+        document.write("Số tiền đã nhập: " + sotiendadoi);
+    } else {
+        document.write("Chưa hỗ trợ đổi đợn vị tiền này!");
+    }
+}
+</script>
+</body>
+</html>
