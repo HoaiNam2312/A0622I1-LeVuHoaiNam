@@ -38,6 +38,7 @@
         <td><button type="button" value="Convert" onclick="inratien()">Convert</button></td>
     </tr>
 </table>
+<p style="color: blue"id="ketqua">Result:</p>
 <script>
 // let sotiencandoi = document.getElementById("sotiendoi").value;
  function inratien() {
@@ -48,9 +49,11 @@
     if (donvicandoi == "vietnam" && donvidoi == "my") {
         let sotiencandoi = document.getElementById("sotiendoi").value;
         let sotiendadoi = sotiencandoi * 0.000043;
-        document.write("Số tiền đã nhập: " + sotiendadoi);
+        document.getElementById("ketqua").innerHTML = "Result: " +sotiendadoi
+        // document.write("Số tiền đã nhập: " + sotiendadoi);
     } else {
-        document.write("Chưa hỗ trợ đổi đợn vị tiền này!");
+        // document.write("Chưa hỗ trợ đổi đợn vị tiền này!");
+        document.getElementById("ketqua").innerHTML = "Chưa hỗ trợ đổi đợn vị tiền này!"
     }
 }
 </script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng máy tinh</title>
+</head>
+<body>
+<h2>Caculator</h2>
+<input type="number"id="soA"style="margin-right: 10px;width:  100px"><input type="number"id="soB"style="width: 100px">
+<br><br>
+<button onclick="phepcong()">Addition(+)</button>
+<button onclick="pheptru()">Subtraction(-)</button>
+<button onclick="phepnhan()">Muiltiplication(X)</button>
+<button onclick="phepchia()">Division(/)</button>
+<P id="ketqua">Result Division: </P>
+<script>
+    function phepcong() {
+        let a = parseInt(document.getElementById("soA").value);
+        let b = parseInt(document.getElementById("soB").value);
+        let sum = a + b;
+        document.getElementById("ketqua").innerHTML = "Result Division: " +sum;
+    }
+    function pheptru() {
+        let a = parseInt(document.getElementById("soA").value);
+        let b = parseInt(document.getElementById("soB").value);
+        let sub = a - b;
+        document.getElementById("ketqua").innerHTML = "Result Division: " +sub;
+    }
+    function phepnhan() {
+        let a = parseInt(document.getElementById("soA").value);
+        let b = parseInt(document.getElementById("soB").value);
+        let mul = a + b;
+        document.getElementById("ketqua").innerHTML = "Result Division: " +mul;
+    }
+    function phepchia() {
+        let a = parseInt(document.getElementById("soA").value);
+        let b = parseInt(document.getElementById("soB").value);
+        let div = a / b;
+        div = div.toFixed(3);
+        document.getElementById("ketqua").innerHTML = "Result Division: " +div;
+    }
+</script>
+</body>
+</html>
