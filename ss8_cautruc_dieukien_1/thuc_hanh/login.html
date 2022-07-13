@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<script>
+    let userName = prompt("Who's there?", '');
+    if (userName == 'Admin') {
+        let passWord = prompt("Pass Word: ", '');
+        if (passWord == 'namdn23'){
+            alert("Chào mừng đại ca");
+        } else if (passWord == '') {
+            alert("Nhập lại đàng hoàn fen!");
+        } else {
+            alert("Quên mật khẩu rồi đúng không? Chết mẹ mày luôn :)))");
+        }
+    } else if (userName == '') {
+        alert("Nhập có lại có chữ xí đi fen ơi!")
+    } else {
+        alert("Tài khoản mà đéo nhớ là bú rồi ^^");
+    }
+</script>
+</body>
+</html>
