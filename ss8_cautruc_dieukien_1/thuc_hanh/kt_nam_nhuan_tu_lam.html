@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tự làm</title>
+</head>
+<body>
+<h2 style="position: center; color: blue; margin-left: 40%">Ứng dụng kiểm tra năm nhuận</h2>
+<input type="number" placeholder="Nhập năm cần xác định" style="margin-left: 40px;margin-right: 10px" id="sonam">
+<button type="button" onclick="kiemtra()">Kiểm tra</button>
+<p id="result" style="margin-left: 40px">Kết quả: </p>
+<script>
+    function kiemtra() {
+        let a = parseInt(document.getElementById("sonam").value);
+        let namnhuan = false;
+        if (a % 4 == 0) {
+            if (a % 100 == 0) {
+                if (a % 400 == 0) {
+                    namnhuan = true;
+                } else {
+                    namnhuan = false;
+                }
+            } else {
+                namnhuan = true;
+            }
+        } else {
+            namnhuan = false;
+        }
+        if (namnhuan) {
+            document.getElementById("result").innerHTML = "Kết quả: Đây là năm nhuận";
+        } else {
+            document.getElementById("result").innerHTML = "Kết quả: Đây không phải là năm nhuận";
+        }
+    }
+</script>
+</body>
+</html>
