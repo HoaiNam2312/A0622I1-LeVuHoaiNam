@@ -8,25 +8,26 @@
     <form>
         <img src="https://salt.tikicdn.com/ts/product/3f/6c/e3/d6c7e0041e2c769248ef01d40a0686cc.jpg" alt="Trái banh" id="myImage"style="width: 300px">
         <p>Click button below to move the image to right</p>
-        <input type="button"value="Sang phải" onclick="moveRight()"style="margin-right: 10px">
-        <input type="button" value="Sang Trái" onclick="moveLeft()">
+        <input type="button"value="Đi lên" onclick="moveUp()"style="margin-right: 10px">
+        <input type="button" value="Đi xuống" onclick="moveDown()">
     </form>
     <script>
         let anh = null;
         anh = document.getElementById("myImage");
         function init() {
             anh = document.getElementById('myImage');
-            anh.style.position = 'relative';
-            anh.style.left = '0px';
+            anh.style.position = 'absolute';
+            anh.style.bottom = '0px';
+            anh.style.right = '0px';
         }
-        function moveRight() {
-            anh.style.left = parseInt(anh.style.left) + 10 + 'px';
+        function moveUp() {
+            anh.style.bottom = parseInt(anh.style.bottom) + 10 + 'px';
         }
-        function moveLeft() {
+        function moveDown() {
             // anh = document.getElementById('myImage');
             // anh.style.position = 'relative';
-            // anh.style.right = '0px';
-            anh.style.right = parseInt(anh.style.right) + 10 + 'px';
+            // anh.style.left = '0px';
+            anh.style.bottom = parseInt(anh.style.bottom) - 10 + 'px';
         }
         window.onload = init();
     </script>
