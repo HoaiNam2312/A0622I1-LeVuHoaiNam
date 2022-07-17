@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game puzzle</title>
+    <style>
+        img {
+            max-width: 50%;
+            height: 200px;
+            box-shadow: 10px 10px 10px gray;
+        }
+
+    </style>
+</head>
+<body>
+<div id="khung">
+    <img src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part1x1.jpg" alt="quynhngu" onclick="anh1()" id="anh1"> <!-- Khỉ -->
+    <img src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part2x1.jpg" alt="quynhngu" onclick="anh2()" id="anh2"> <!-- Gấu -->
+    <img src="https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part3x1.jpg" alt="quynhngu" onclick="anh3()" id="anh3"> <!-- chồn -->
+    <img src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part4x1.jpg" alt="quynhngu" onclick="anh4()" id="anh4"> <!-- khỉ -->
+    <img src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part5x1.jpg" alt="quynhngu" onclick="anh5()" id="anh5"> <!-- gấu -->
+
+</div>
+<script>
+
+        let a = 1;
+        let b = 1;
+        let c = 1;
+        let d = 1;
+        let e = 1;
+        let hinh1 = document.getElementById("anh1");
+        let hinh2 = document.getElementById("anh2");
+        let hinh3 = document.getElementById("anh3");
+        let hinh4 = document.getElementById("anh4");
+        let hinh5 = document.getElementById("anh5");
+        function anh1() {
+            a++ ;
+            if (a == 2) {
+                hinh1.src="https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part1x1.jpg";  <!-- chồn -->
+                if (b==2 && c==1 && d==3 && e==3) {
+                    maudo()
+                } else {
+                    mauXam()
+                }
+            } else if (a == 3) {
+                hinh1.src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part1x1.jpg";  <!-- gấu -->
+                if (b==1 && c==2 && d==2 && e==1) {
+                    maudo()
+                } else {
+                    mauXam()
+                }
+            } else {
+                hinh1.src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part1x1.jpg";  <!-- Khỉ -->
+                a = 1;
+                if (b==3 && c==3 && d==1 && e==2) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            }
+            return a;
+        }
+        function anh2() {
+            b++;
+            if (b == 2) {
+                hinh2.src="https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part2x1.jpg";  <!-- chồn -->
+                if (a==2 && c==1 && d==3 && e==3) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            } else if (b == 3) {
+                hinh2.src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part2x1.jpg";  <!-- khỉ -->
+                if (a==1 && c==3 && d==1 && e==2) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            } else {
+                hinh2.src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part2x1.jpg";  <!-- Gấu -->
+                b = 1;
+                if (a==3 && c==2 && d==2 && e==1) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            }
+            return b;
+        }
+        function anh3() {
+
+            c++;
+            if (c == 2) {
+                hinh3.src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part3x1.jpg";  <!-- gấu -->
+                if (a==3 && b==1 && d==2 && e==1) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            } else if (c == 3) {
+                hinh3.src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part3x1.jpg";  <!-- khỉ -->
+                if (a==1 && b==3 && d==1 && e==2) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            } else {
+                hinh3.src="https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part3x1.jpg";  <!-- chồn -->
+                c = 1;
+                if (a==2 && b==2 && d==3 && e==3) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            }
+            return c;
+        }
+        function anh4() {
+
+            d++;
+            if (d == 2) {
+                hinh4.src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part4x1.jpg";  <!-- gấu -->
+                if (a==3 && b==1 && c==2 && e==1) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            } else if (d == 3) {
+                hinh4.src="https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part4x1.jpg";  <!-- chồn -->
+                if (a==2 && b==2 && c==1 && e==3) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            } else {
+                hinh4.src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part4x1.jpg";  <!-- Khỉ -->
+                d = 1;
+                if (a==1 && b==3 && c==3 && e==2) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            }
+            return d;
+        }
+        function anh5() {
+            e++;
+            if (e == 2) {
+                hinh5.src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part5x1.jpg";  <!-- khỉ -->
+                if (a==1 && b==3 && c==3 && d==1) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            } else if (e == 3) {
+                hinh5.src="https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part5x1.jpg";  <!-- chồn -->
+                if (a==2 && b==2 && c==1 && d==3) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            } else {
+                hinh5.src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part5x1.jpg";  <!-- Gấu -->
+                e = 1;
+                if (a==3 && b==1 && c==2 && d==2) {
+                    maudo();
+                } else {
+                    mauXam();
+                }
+            }
+            return e;
+        }
+        function maudo() {
+            hinh1.style.boxShadow = "10px 10px 10px red";
+            hinh2.style.boxShadow = "10px 10px 10px red";
+            hinh3.style.boxShadow = "10px 10px 10px red";
+            hinh4.style.boxShadow = "10px 10px 10px red";
+            hinh5.style.boxShadow = "10px 10px 10px red";
+        }
+        function mauXam() {
+            hinh1.style.boxShadow = "10px 10px 10px gray";
+            hinh2.style.boxShadow = "10px 10px 10px gray";
+            hinh3.style.boxShadow = "10px 10px 10px gray";
+            hinh4.style.boxShadow = "10px 10px 10px gray";
+            hinh5.style.boxShadow = "10px 10px 10px gray";
+        }
+</script>
+</body>
+</html>

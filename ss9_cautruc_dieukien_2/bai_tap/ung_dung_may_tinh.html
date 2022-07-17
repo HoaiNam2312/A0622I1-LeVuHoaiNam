@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng máy tính</title>
+    <style>
+        td .nutnhan {
+            size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ứng dụng máy tính</h2>
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" id="nhap" size="40px" style="text-align: right"></td>
+        </tr>
+        <tr>
+            <td class="nutnhan"><input type="button" id="so1" value="1" onclick="hienthi('1')" size="20px"></td>
+            <td class="nutnhan"><input type="button" id="so2" value="2" onclick="hienthi('2')" size="20px"></td>
+            <td class="nutnhan"><input type="button" id="so3" value="3" onclick="hienthi('3')" size="20px"></td>
+            <td class="nutnhan"><input type="button" id="dauCong" value="+" onclick="hienthi(' + ')" size="20px"></td>
+        </tr>
+        <tr>
+            <td class="nutnhan"><input type="button" id="so4" value="4" onclick="hienthi('4')"></td>
+            <td class="nutnhan"><input type="button" id="so5" value="5" onclick="hienthi('5')"></td>
+            <td class="nutnhan"><input type="button" id="so6" value="6" onclick="hienthi('6')"></td>
+            <td class="nutnhan"><input type="button" id="dautru" value="-" onclick="hienthi(' - ')"></td>
+        </tr>
+        <tr>
+            <td class="nutnhan"><input type="button" id="so7" value="7" onclick="hienthi('7')"></td>
+            <td class="nutnhan"><input type="button" id="so8" value="8" onclick="hienthi('8')"></td>
+            <td class="nutnhan"><input type="button" id="so9" value="9" onclick="hienthi('9')"></td>
+            <td class="nutnhan"><input type="button" id="daunhan" value="x" onclick="hienthi(' * ')"></td>
+        </tr>
+        <tr>
+            <td class="nutnhan"><input type="button" id="xoa" value="C" onclick="hienthi('')"></td>
+            <td class="nutnhan"><input type="button" id="so0" value="0" onclick="hienthi('0')"></td>
+            <td class="nutnhan"><input type="button" id="daubang" value="=" onclick="tinhtoan()"></td>
+            <td class="nutnhan"><input type="button" id="dauchia" value="/" onclick="hienthi(' / ')"></td>
+        </tr>
+    </table>
+    <script>
+        function hienthi(thamso) {
+            document.getElementById("nhap").value += thamso;
+            if (thamso == '') {
+                document.getElementById("nhap").value = '';
+            }
+        }
+        function tinhtoan() {
+            let ketqua = eval(document.getElementById("nhap").value);
+            document.getElementById("nhap").value = ketqua;
+        }
+    </script>
+
+</body>
+</html>
