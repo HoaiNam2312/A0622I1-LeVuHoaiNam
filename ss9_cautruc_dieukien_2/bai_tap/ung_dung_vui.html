@@ -7,9 +7,11 @@
         #yes {
             margin-right: 40px;
         }
-        /*#no {*/
-        /*    position: relative;*/
-        /*}*/
+        #no {
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
     </style>
 </head>
 <body>
@@ -17,36 +19,36 @@
 <button type="button" id="yes" onclick="dongY()">Yes</button>
 <button type="button" id="no" onmouseover="tuChoi()">No</button>
 
-<script>
-    let dem = 0;
-    let a = null;
-    a = document.getElementById("no");
-    function init() {
-        let a = document.getElementById("no");
-        a.style.position ='relative';
-        a.style.top = '0px';
-        a.style.left = '0px';
-    }
-    function dongY() {
-        alert("Thank you for choosing me <3");
-    }
-    function tuChoi() {
-        dem++;
-        if (dem < 66) {
-            if (dem % 2 == 0) {
-                a.style.top = parseInt(a.style.top) + 20 + 'px';
-            } else {
-                a.style.left = parseInt(a.style.left) + 20 + 'px';
-            }
-        } else {
-            if (dem % 2 == 0) {
-                a.style.top = parseInt(a.style.top) - 20 + 'px';
-            } else {
-                a.style.left = parseInt(a.style.left) + 20 + 'px';
-            }
-        }
-    }
-    window.onload = init;
-</script>
+<!--<script>-->
+<!--    let dem = 0;-->
+<!--    let a = null;-->
+<!--    a = document.getElementById("no");-->
+<!--    function init() {-->
+<!--        let a = document.getElementById("no");-->
+<!--        a.style.position ='relative';-->
+<!--        a.style.top = '0px';-->
+<!--        a.style.left = '0px';-->
+<!--    }-->
+<!--    function dongY() {-->
+<!--        alert("Thank you for choosing me <3");-->
+<!--    }-->
+<!--    function tuChoi() {-->
+<!--        dem++;-->
+<!--        if (dem < 66) {-->
+<!--            if (dem % 2 == 0) {-->
+<!--                a.style.top = parseInt(a.style.top) + 20 + 'px';-->
+<!--            } else {-->
+<!--                a.style.left = parseInt(a.style.left) + 20 + 'px';-->
+<!--            }-->
+<!--        } else {-->
+<!--            if (dem % 2 == 0) {-->
+<!--                a.style.top = parseInt(a.style.top) - 20 + 'px';-->
+<!--            } else {-->
+<!--                a.style.left = parseInt(a.style.left) + 20 + 'px';-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+<!--    window.onload = init;-->
+<!--</script>-->
 </body>
 </html>

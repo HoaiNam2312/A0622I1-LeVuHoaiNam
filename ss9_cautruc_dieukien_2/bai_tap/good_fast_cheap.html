@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Good Fast Cheap</title>
+</head>
+<body>
+<form>
+    <input type="checkbox" onclick="kiemTra1()" id="good" value="good"> Good <br>
+    <input type="checkbox" onclick="kiemTra2()" id="cheap" value="cheap"> Cheap <br>
+    <input type="checkbox" onclick="kiemTra3()" id="fast" value="fast"> Fast <br>
+</form>
+
+<script>
+    let good = document.getElementById("good");
+    let cheap = document.getElementById("cheap");
+    let fast = document.getElementById("fast");
+    function kiemTra1() {
+       if (cheap.checked) {
+           fast.checked = false;
+       }
+    }
+    function kiemTra2() {
+       if (fast.checked) {
+           good.checked = false;
+       }
+    }
+    function kiemTra3() {
+       if (good.checked) {
+           cheap.checked = false;
+       }
+    }
+</script>
+</body>
+</html>
