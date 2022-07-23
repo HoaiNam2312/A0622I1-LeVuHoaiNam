@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+<script>
+    alert("Phương trình bậc 2 có dạng: A * x^2 + B * x + C = 0");
+    let a = +prompt("Nhập số A: ");
+    let b = +prompt("Nhập số B: ");
+    let c = +prompt("Nhập số C: ");
+    let denta = b**2 - 4*a*c;
+    if (denta < 0){
+        alert("Phương trình vô nghiệm");
+    } else if (denta == 0) {
+        x = - b / 2*a;
+        alert("Phương trình có nghiệm kép bằng: "+x);
+    } else {
+        let x1 = (-b + Math.sqrt(denta)) / (2 * a);
+        let x2 = (-b - Math.sqrt(denta)) / (2 * a);
+        alert("Hai nghiệm của phương trình là: "+x1.toFixed(3) +" và"+x2.toFixed(3));
+    }
+</script>
+</body>
+</html>

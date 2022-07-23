@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính thuế cá nhân</title>
+</head>
+<body>
+<script>
+    let tienLuong = +prompt("Vui lòng nhập mức lương hiện tại của bạn (triệu VND): ");
+    let tienThue;
+    if (tienLuong >= 15) {
+        tienThue = tienLuong * 30 / 100;
+    } else if (tienLuong >= 7 ) {
+        tienThue = tienLuong * 20 / 1000;
+    } else {
+        tienThue = tienLuong * 10 / 100;
+    }
+    let tienNhanDuoc = tienLuong - tienThue;
+    alert("Số tiền thuế bạn phải trả là: "+tienThue+" Triệu VND");
+    alert("Tổng số tiền bạn nhận được là: "+tienNhanDuoc+" Triệu VND");
+</script>
+</body>
+</html>

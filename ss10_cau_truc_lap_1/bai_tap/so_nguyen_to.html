@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In N số nguyên tố đầu tiên</title>
+</head>
+<body>
+<script>
+    // let num = +prompt("Nhập số lượng số nguyên tố cần tìm: ");
+    // let count = 0;
+    // for (count;count<num-1;count++){
+    //
+    //
+    let array = [];
+    let num = +prompt("Nhập số lượng số nguyên tố cần tìm: ");
+    let count = 0;
+    // let soNguyenTo = true;
+    for (let i=2;;i++) {
+        if (kiemTraSoNT(i)){
+            count++;
+            array.push(i);
+        }
+        if (count == num) {
+            break;
+        }
+    }
+    document.write(array);
+
+    function kiemTraSoNT(soCanKT) {
+        let soNguyenTo = true;
+        for (let j=2;j<=soCanKT-1;j++) {
+            if (soCanKT % j==0) {
+                soNguyenTo = false;
+                break;
+            }
+        }
+        return soNguyenTo;
+    }
+</script>
+</body>
+</html>

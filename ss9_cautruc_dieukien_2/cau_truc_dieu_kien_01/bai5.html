@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+    while (true) {
+
+        let diemQt = +prompt("Nhập điểm quá trình: ");
+        let diemGk = +prompt("Nhập điểm giữa kì: ");
+        let diemCk = +prompt("Nhập điểm cuối kì: ");
+        let diemTrungBinh = diemQt * 0.2 + diemGk * 0.3 + diemCk * 0.5;
+        if (diemTrungBinh >= 8.5) {
+            alert("Sinh viên đạt loại A");
+        } else if (diemTrungBinh >= 7.8) {
+            alert("Sinh viên đạt loại B+");
+        } else if (diemTrungBinh >= 7.0) {
+            alert("Sinh viên đạt loại B");
+        } else if (diemTrungBinh >= 6.3) {
+            alert("Sinh viên đạt loại C+");
+        } else if (diemTrungBinh >= 5.5) {
+            alert("Sinh viên đạt loại C");
+        } else if (diemTrungBinh >= 4.8) {
+            alert("Sinh viên đạt loại D+");
+        } else if (diemTrungBinh >= 4.0) {
+            alert("Sinh viên đạt loại D");
+        } else {
+            alert("Sinh đạt loại F");
+        }
+    }
+</script>
+</body>
+</html>

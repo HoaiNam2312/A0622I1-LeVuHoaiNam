@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình vuông</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Nhập cạnh thứ nhất của hình vuông: ");
+    let b = +prompt("Nhập cạnh thứ hai của hình vuông: ");
+    let dienTich = a*b;
+    if (a>0 && b>0) {
+        if (a==b){
+            alert("Diện tích hình vuông là: "+dienTich);
+        } else {
+            alert("Chiều dài cạnh hình vuông phải bằng nhau. Vui lòng nhập lại");
+        }
+    }else {
+        alert("vui lòng nhập cạnh hình vuông >0");
+    }
+</script>
+</body>
+</html>

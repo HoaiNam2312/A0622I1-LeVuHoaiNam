@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    while (true) {
+        let soPhut = +prompt("Nhập số phút đã sử dụng điện thoại: ");
+        let batBuoc = 25000;
+        if (soPhut > 200) {
+            let phiCuoc = (batBuoc + (soPhut - 200)*200 + 400*150 + 600*50) *0.001;
+            alert("Giá cước điện thoại của gia đình là : "+phiCuoc.toFixed(3)+" VND");
+        } else if (soPhut > 50) {
+            phiCuoc = (batBuoc + (soPhut - 50)*400 + 50*600)*0.001;
+            alert("Giá cước điện thoại của gia đình là : "+phiCuoc.toFixed(3)+" VND");
+        } else {
+            phiCuoc = (batBuoc + soPhut*600)*0.001;
+            alert("Giá cước điện thoại của gia đình là : "+phiCuoc.toFixed(3)+" VND");
+        }
+    }
+</script>
+</body>
+</html>

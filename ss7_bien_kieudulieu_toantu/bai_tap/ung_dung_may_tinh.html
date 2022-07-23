@@ -8,36 +8,35 @@
 <h2>Caculator</h2>
 <input type="number"id="soA"style="margin-right: 10px;width:  100px"><input type="number"id="soB"style="width: 100px">
 <br><br>
-<button onclick="phepcong()">Addition(+)</button>
-<button onclick="pheptru()">Subtraction(-)</button>
-<button onclick="phepnhan()">Muiltiplication(X)</button>
-<button onclick="phepchia()">Division(/)</button>
+<button onclick="phepCong()">Addition(+)</button>
+<button onclick="phepTru()">Subtraction(-)</button>
+<button onclick="phepNhan()">Muiltiplication(X)</button>
+<button onclick="phepChia()">Division(/)</button>
 <P id="ketqua">Result Division: </P>
 <script>
-    function phepcong() {
+    function phepCong() {
         let a = parseInt(document.getElementById("soA").value);
         let b = parseInt(document.getElementById("soB").value);
         let sum = a + b;
         document.getElementById("ketqua").innerHTML = "Result Division: " +sum;
     }
-    function pheptru() {
+    function phepTru() {
         let a = parseInt(document.getElementById("soA").value);
         let b = parseInt(document.getElementById("soB").value);
         let sub = a - b;
         document.getElementById("ketqua").innerHTML = "Result Division: " +sub;
     }
-    function phepnhan() {
+    function phepNhan() {
         let a = parseInt(document.getElementById("soA").value);
         let b = parseInt(document.getElementById("soB").value);
         let mul = a * b;
         document.getElementById("ketqua").innerHTML = "Result Division: " +mul;
     }
-    function phepchia() {
+    function phepChia() {
         let a = parseInt(document.getElementById("soA").value);
         let b = parseInt(document.getElementById("soB").value);
         let div = a / b;
-        div = div.toFixed(3);
-        document.getElementById("ketqua").innerHTML = "Result Division: " +div;
+        document.getElementById("ketqua").innerHTML = "Result Division: " +div.toFixed(3);
     }
 </script>
 </body>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính tiền lãi vay</title>
+</head>
+<body>
+<form action="">
+    <div>
+        <label>Số tiền vay:</label>
+        <input type="text" name="" id="tien" placeholder="Nhập bằng số"> <span>VND</span>
+    </div><br>
+    <div>
+        <label>Thời gian vay:</label>
+        <input type="text" name="" id="thoigianvay" placeholder="Nhập bằng số"> <span>Tháng</span>
+    </div><br>
+    <div>
+        <label>Lãi suất:</label>
+        <input type="text" name="" id="laisuat" placeholder="Nhập bằng số"> <span>%năm</span>
+    </div><br>
+    <button onclick="tinhtoan()">Tính toán</button>
+</form>
+<table id="body">
+        <tr>
+            <th>Kỳ hạn</th>
+            <th>Số gốc còn lại</th>
+            <th>Gốc hằng tháng</th>
+            <th>Lãi hằng tháng</th>
+            <th>Số tiền phải phải trả hằng tháng</th>
+        </tr>
+
+</table>
+
+<script>
+    let tienVay = document.getElementById("tien");
+    let time = document.getElementById("thoigianvay");
+    let lai = document.getElementById("laisuat");
+    let body = document.getElementById("body");
+
+    function tinhtoan() {
+        let tienGoc = +tienVay.value.toLocaleString();
+        let thoiGianVay = +time.value;
+        let laiSuat = +lai.value;
+
+        ketqua(tienGoc, laiSuat, thoiGianVay)
+    }
+
+    function tinhToanGoc(tienGoc, time){
+        let tienMoiThang = tienGoc/time;
+        return tienMoiThang;
+    }
+
+    function tinhToanLai(tienGocConLai, laiSuat){
+        let laiMoiThang = tienGocConLai*(laiSuat/100)/12;
+        return laiMoiThang;
+    }
+
+    function ketqua(tienGoc, laiSuat, time){
+        var tienGocConLai = tienGoc;
+        var gocHangThang = tinhToanGoc(tienGoc, time)
+
+        taoBang(0, tienGocConLai)
+
+        for(let i =1; i<=time; i++){
+            let laiHangThang = tinhToanLai(tienGocConLai, laiSuat)
+            let tienPhaiTraHangThang = laiHangThang + gocHangThang;
+            tienGocConLai -= gocHangThang;
+            taoBang(i, tienGocConLai, gocHangThang, laiHangThang, tienPhaiTraHangThang)
+        }
+    }
+
+    function taoBang(kyHan, gocCon, gocThang, laiThang, phaiTra){
+        var hang = body.insertRow(-1);
+        var cot1 = hang.insertCell(0);
+        var cot2 = hang.insertCell(1);
+        var cot3 = hang.insertCell(2);
+        var cot4 = hang.insertCell(3);
+        var cot5 = hang.insertCell(4);
+
+        if (kyHan == 0) {
+            cot1.innerHTML = kyHan;
+            cot2.innerText = updateNumber(gocCon);
+            cot3.innerText = '';
+            cot4.innerText = '';
+            cot5.innerText = '';
+            // body.innerHTML += `
+            //     <tr>
+            //         <td>${kyHan}</td>
+            //         <td>${Math.round(gocCon).toLocaleString()}</td>
+            //         <td></td>
+            //         <td></td>
+            //         <td></td>
+            //     </tr>
+            // `;
+        } else {
+            cot1.innerText = kyHan;
+            cot2.innerText = updateNumber(gocCon);
+            cot3.innerText = updateNumber(gocThang);
+            cot4.innerText = updateNumber(laiThang);
+            cot5.innerText = updateNumber(phaiTra);
+            // body.innerHTML += `
+            //     <tr>
+            //         <td>${kyHan}</td>
+            //         <td>${Math.round(gocCon).toLocaleString()}</td>
+            //         <td>${Math.round(gocThang).toLocaleString()}</td>
+            //         <td>${Math.round(laiThang).toLocaleString()}</td>
+            //         <td>${Math.round(phaiTra).toLocaleString()}</td>
+            //     </tr>
+            // `;
+        }
+    }
+</script>
+</body>
+</html>

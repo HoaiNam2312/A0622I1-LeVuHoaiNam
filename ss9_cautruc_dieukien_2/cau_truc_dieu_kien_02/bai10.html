@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chương trình tính tiền điện</title>
+</head>
+<body>
+<script>
+    let soChuDien = +prompt("Nhập số chữ điện đã sử dụng: ");
+    let bac1 = 1678;
+    let bac2 = 1734;
+    let bac3 = 2014;
+    let bac4 = 2536;
+    let bac5 = 2834;
+    let bac6 = 2927;
+    if (soChuDien>=401) {
+        let soTien = 50*bac1 + 50*bac2 + 100*bac3 + 100*bac4 + 100*bac5 + (soChuDien-400)*bac6;
+        alert("Số tiền phải trả là: "+soTien+" VND");
+    } else if (soChuDien>=301) {
+        soTien = 50*bac1 + 50*bac2 + 100*bac3 + 100*bac4 + (soChuDien-300)*bac5;
+        alert("Số tiền phải trả là: "+soTien+" VND");
+    } else if (soChuDien>=201) {
+        soTien = 50*bac1 + 50*bac2 + 100*bac3 + (soChuDien-200)*bac4;
+        alert("Số tiền phải trả là: "+soTien+" VND");
+    } else if (soChuDien>101) {
+        soTien = 50*bac1 + 50*bac2 + (soChuDien-100)*bac3;
+        alert("Số tiền phải trả là: "+soTien+" VND");
+    } else if (soChuDien>=51) {
+        soTien = 50*bac1 + (soChuDien-50)*bac2;
+        alert("Số tiền phải trả là: "+soTien+" VND");
+    } else if (soChuDien>0) {
+        soTien = soChuDien*bac1;
+        alert("Số tiền phải trả là: "+soTien+" VND");
+    } else {
+        alert("Vui lòng nhập số lớn hơn 0");
+    }
+</script>
+</body>
+</html>

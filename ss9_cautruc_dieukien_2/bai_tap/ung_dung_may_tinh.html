@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <title>Ứng dụng máy tính</title>
     <style>
-        td .nutnhan {
-            size: 20px;
+        .nhap {
+            text-align: right;
+            width: 292px;
+            height: 30px;
+            border: 3px solid black;
+            padding: 1px 3px 1px 2px;
+            margin: 0 0 10px 0;
+        }
+        .nutnhan {
+            width: 68px;
+            border: 2px;
+            padding: 4px;
+            border: 2px solid black;
+            margin: 0 6px 6px 0;
         }
     </style>
 </head>
@@ -13,31 +25,31 @@
     <h2>Ứng dụng máy tính</h2>
     <table>
         <tr>
-            <td colspan="4"><input type="text" id="nhap" size="40px" style="text-align: right"></td>
+            <td colspan="4" style="width: 294px"><input type="text" id="nhap" size="40px" class="nhap" style="text-align: right;width: 290px"></td>
         </tr>
         <tr>
-            <td class="nutnhan"><input type="button" id="so1" value="1" onclick="hienthi('1')" size="20px"></td>
-            <td class="nutnhan"><input type="button" id="so2" value="2" onclick="hienthi('2')" size="20px"></td>
-            <td class="nutnhan"><input type="button" id="so3" value="3" onclick="hienthi('3')" size="20px"></td>
-            <td class="nutnhan"><input type="button" id="dauCong" value="+" onclick="hienthi(' + ')" size="20px"></td>
+            <td><input type="button" id="so1" value="1" onclick="hienthi('1')" size="20px"class="nutnhan"></td>
+            <td><input type="button" id="so2" value="2" onclick="hienthi('2')" size="20px"class="nutnhan"></td>
+            <td><input type="button" id="so3" value="3" onclick="hienthi('3')" size="20px"class="nutnhan"></td>
+            <td><input type="button" id="dauCong" value="+" onclick="hienthi(' + ')" size="20px"class="nutnhan"></td>
         </tr>
         <tr>
-            <td class="nutnhan"><input type="button" id="so4" value="4" onclick="hienthi('4')"></td>
-            <td class="nutnhan"><input type="button" id="so5" value="5" onclick="hienthi('5')"></td>
-            <td class="nutnhan"><input type="button" id="so6" value="6" onclick="hienthi('6')"></td>
-            <td class="nutnhan"><input type="button" id="dautru" value="-" onclick="hienthi(' - ')"></td>
+            <td><input type="button" id="so4" value="4" onclick="hienthi('4')"class="nutnhan"></td>
+            <td><input type="button" id="so5" value="5" onclick="hienthi('5')"class="nutnhan"></td>
+            <td><input type="button" id="so6" value="6" onclick="hienthi('6')"class="nutnhan"></td>
+            <td><input type="button" id="dautru" value="-" onclick="hienthi(' - ')"class="nutnhan"></td>
         </tr>
         <tr>
-            <td class="nutnhan"><input type="button" id="so7" value="7" onclick="hienthi('7')"></td>
-            <td class="nutnhan"><input type="button" id="so8" value="8" onclick="hienthi('8')"></td>
-            <td class="nutnhan"><input type="button" id="so9" value="9" onclick="hienthi('9')"></td>
-            <td class="nutnhan"><input type="button" id="daunhan" value="x" onclick="hienthi(' * ')"></td>
+            <td><input type="button" id="so7" value="7" onclick="hienthi('7')"class="nutnhan"></td>
+            <td><input type="button" id="so8" value="8" onclick="hienthi('8')"class="nutnhan"></td>
+            <td><input type="button" id="so9" value="9" onclick="hienthi('9')"class="nutnhan"></td>
+            <td><input type="button" id="daunhan" value="x" onclick="hienthi(' * ')"class="nutnhan"></td>
         </tr>
         <tr>
-            <td class="nutnhan"><input type="button" id="xoa" value="C" onclick="hienthi('')"></td>
-            <td class="nutnhan"><input type="button" id="so0" value="0" onclick="hienthi('0')"></td>
-            <td class="nutnhan"><input type="button" id="daubang" value="=" onclick="tinhtoan()"></td>
-            <td class="nutnhan"><input type="button" id="dauchia" value="/" onclick="hienthi(' / ')"></td>
+            <td><input type="button" id="xoa" value="C" onclick="hienthi('')"class="nutnhan"></td>
+            <td><input type="button" id="so0" value="0" onclick="hienthi('0')"class="nutnhan"></td>
+            <td><input type="button" id="daubang" value="=" onclick="tinhtoan()"class="nutnhan"></td>
+            <td><input type="button" id="dauchia" value="/" onclick="hienthi(' / ')"class="nutnhan"></td>
         </tr>
     </table>
     <script>
