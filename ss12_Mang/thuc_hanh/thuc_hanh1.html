@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành thêm phần tử vào mảng</title>
+</head>
+<body>
+<h2>Sampble Screen</h2>
+<input type="text" id="nhap" placeholder="Nhập vào đây">
+<button onclick="nhapMang()" >Add</button>
+<button onclick="xuatRa()">Display</button>
+<p id="ketQua"></p>
+
+<script>
+    let mang = [];
+    let x = document.getElementById("nhap");
+    function nhapMang() {
+        let a = x.value;
+        mang.push(a);
+        x.innerText = "";
+    }
+    function xuatRa() {
+        let e;
+        for (let i = 0; i < mang.length; i++) {
+            e += "Element "+i+" = "+mang[i]+"<br>";
+        }
+        document.getElementById("ketQua").innerHTML =e;
+    }
+</script>
+</body>
+</html>

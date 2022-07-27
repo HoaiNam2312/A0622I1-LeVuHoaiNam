@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    let soLuong = +prompt("Nhập số lượng số số Finonaci mà bạn muốn in: ");
+    let sum; // biến lưu giá trị Finonaci
+    let a;  // biến trung gian lưu các giá trị Finonaci ứng với i là số chẵn
+    let b;  // biến trung gian lưu các giá trị Finonaci ứng với i là số lẻ
+    for (let i=0;i<soLuong;i++) {
+        if (i==0) {
+            sum =0;
+            a = sum;
+        } else if (i==1){
+            sum = 1;
+            b = sum;
+        } else {
+            if (i%2==0){
+                sum += a;
+                a = sum
+            } else {
+                sum += b;
+                b = sum;
+            }
+        }
+
+        console.log(sum);
+    }
+</script>
+</body>
+</html>

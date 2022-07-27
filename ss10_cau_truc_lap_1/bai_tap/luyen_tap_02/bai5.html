@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let tienGoc = +prompt("Nhập số tiền bạn muốn gửi ngân hàng: ");
+    let laiSuat = +prompt("Lãi suất hằng tháng của ngân hàng bạn gửi: ");
+    laiSuat = laiSuat/100;
+    let thoiGian = +prompt("Thời gian bạn muốn gửi, tính theo tháng: ");
+    for (let i = 1; i <= thoiGian; i++) {
+        tienGoc += tienGoc*laiSuat;
+    }
+    alert("Số tiền bạn nhận được sau "+thoiGian+" tháng là: "+tienGoc.toLocaleString());
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<button type="button" onclick="choiGame()">Chơi</button>
+<script>
+    let u=1;
+    let choice = false;
+    function choiGame() {
+        u++;
+        if (u%2==0) {
+            let n = +prompt("Nhập khoảng giới hạn mà bạn muốn đón nó, bắt đầu từ số 0 : "); // số giới hạn
+            let a = Math.floor(Math.random() * (n+1));
+            let b = +prompt("Nhập số bạn muốn đoán: "); // Lấy số mà người chơi chọn
+            for (let i=1; i<=4; i++) {
+                if (i==4) {
+                    if (a==b){
+                        alert("ạn đã đoán chính xác.");
+                    } else {
+                        alert("Bạn đã thất bạn. Bấm 'Chơi' để chơi lại");
+                    }
+                }else {
+                    if (b == a) {
+                        alert("Bạn đã đoán chính xác.");
+                        break;
+                    } else if (b > a) {
+                        b = +prompt("Vui lòng nhập số nhỏ hơn!")
+                    } else {
+                        b = +prompt("Vui lòng nhập số lớn hơn!");
+                    }
+                }
+            }
+        } else {
+            choice = confirm("Bạn có muốn chơi lại không?");
+            if (choice) {
+                choiGame();
+            }else {
+                alert("Tạm biệt bạn <3");
+            }
+        }
+    }
+</script>
+</body>
+</html>
