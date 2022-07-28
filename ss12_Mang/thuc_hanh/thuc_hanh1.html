@@ -12,20 +12,42 @@
 <p id="ketQua"></p>
 
 <script>
-    let mang = [];
-    let x = document.getElementById("nhap");
-    function nhapMang() {
-        let a = x.value;
-        mang.push(a);
-        x.innerText = "";
-    }
-    function xuatRa() {
-        let e;
-        for (let i = 0; i < mang.length; i++) {
-            e += "Element "+i+" = "+mang[i]+"<br>";
-        }
-        document.getElementById("ketQua").innerHTML =e;
-    }
+    // let e='';
+    // let mang = [];
+    // let x = document.getElementById("nhap");
+    // function nhapMang() {
+    //     let a = x.value;
+    //     mang.push(a);
+    //     x.value = "";
+    // }
+    // function xuatRa() {
+    //     e= '';
+    //     for (let i = 0; i < mang.length; i++) {
+    //         e += "Element "+i+" = "+mang[i]+"<br>";
+    //     }
+    //     document.getElementById("ketQua").innerHTML = '';
+    //     document.getElementById("ketQua").innerHTML = e;
+    // }
+
+    // Đảo ngược vị trí trong mảng
+    // let a =[1,2,4,,8,10];
+    // a.reverse();
+    // console.log()
+
+    // Tìm vị trí của 1 giá trị có trong mảng
+    // let n = prompt("Nhập tên của bạn: ");
+    // let names = ['Nam', 'Trun', 'Tin', 'Thiện', 'Múi', 'Quân'];
+    // for (let i = 0; i <names.length ; i++) {
+    //     if (n == names[i]) {
+    //         alert("Tên "+n+" là phần tử thứ "+i+" trong mảng.");
+    //     }
+    // }
+
+    // Tìm giá trị lớn nhất trong mảng
+    let array = [100,998,872,12,332];
+    let min = Math.min.apply(null, array);
+    let max = Math.max.apply(null, array);
+    alert(max +" và "+min);
 </script>
 </body>
 </html>
