@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<input type="text" id="daySo" placeholder="Nhập từng số vào mảng">
+<button onclick="add()">Add</button>
+<button onclick="kiemTra()">Kiểm tra</button>
+<ul id="inRa"></ul>
+<p id="ketQua"></p>
+<script>
+let a = [];
+let daySo = document.getElementById("daySo");
+
+function kiemTra() {
+    let max=a[0];
+    let viTri =0;
+    for (let i = 0; i < a.length; i++) {
+        if (max < a[i]){
+            max = a[i];
+            viTri = i;
+        }
+    }
+    document.getElementById("ketQua").innerHTML = `<b>Giá trị lớn nhất trong mảng là ${max} ở hàng ${viTri + 1}</b>`;
+}
+function add(){
+    let ketQua = +daySo.value;
+    a.push(ketQua);
+    let content = a.map(function (item) {
+        return `<li>${item}</li>`;
+    })
+    document.getElementById("inRa").innerHTML = content.join('');
+    daySo.value ='';
+}
+</script>
+</body>
+</html>

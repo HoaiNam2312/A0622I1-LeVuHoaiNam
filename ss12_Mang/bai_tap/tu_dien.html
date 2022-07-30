@@ -6,31 +6,29 @@
 </head>
 <body>
 <h2>Từ điển tiếng anh</h2>
-<form action="">
-    <input type="text"id="tiengAnh" placeholder="Nhập từ Tiếng Anh">
+    <input type="text" id="tiengAnh" placeholder="Nhập từ Tiếng Anh">
     <input type="text"id="tiengViet" placeholder="Nhập từ Tiếng Việt">
     <button onclick="tra()">Tra</button>
-</form>
+
 <script>
     let eng = ["Hello", "Good morning", "Fuck you", "Bye"];
     let vie = ["Xin chào", "Chào buổi sáng", "Dumemi", "Tạm biệt"];
 
+
     function tra() {
         let tim = document.getElementById("tiengAnh").value;
-        console.log(tim);
+        let timThay = false;
+        for (let i = 0; i <eng.length ; i++) {
+            if (tim === eng[i]){
+                document.getElementById("tiengViet").value = vie[i];
+                timThay = true;
+                break;
+            }
+        }
+        if (!timThay){
+            alert("Không dịch được");
+        }
     }
-    // function tra(tim) {
-    //     //let tim = document.getElementById("tiengAnh").value;
-    //     for (let i = 0; i <eng.length ; i++) {
-    //         if (tim===eng[i]){
-    //             //document.getElementById("tiengViet").value = vie[i];
-    //             return vie[i]
-    //             //break;
-    //         } else {
-    //             alert("Không tìm thấy");
-    //         }
-    //     }
-    // }
     // document.getElementById("tiengViet").value = tra(tim);
 </script>
 </body>

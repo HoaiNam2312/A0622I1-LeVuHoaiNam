@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Bài 4</title>
+        </head>
+<body>
+<input type="text" id="daySo" placeholder="Nhập từng số vào mảng">
+<button onclick="add()">Add</button>
+<button onclick="daoNguoc()">Đảo ngược</button>
+<ul id="inRa"></ul>
+<p id="ketQua"></p>
+<script>
+    let a = [];
+    let daySo = document.getElementById("daySo");
+
+    function daoNguoc() {
+        let first = 0;
+        let last =a.length-1;
+        while (first<last){
+            let tmp = a[first];
+            a[first] = a[last];
+            a[last] = tmp;
+            first++;
+            last--;
+        }
+        inRa();
+    }
+    function add(){
+        let ketQua = +daySo.value;
+        a.push(ketQua);
+        inRa();
+        daySo.value ='';
+    }
+    function inRa() {
+         let mang = a.map(function (item) {
+            return `<li>${item}</li>`;
+        })
+        document.getElementById("inRa").innerHTML = mang.join('');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Bài 6</title>
+        </head>
+<body>
+<input type="text" id="daySo" placeholder="Nhập từng số vào mảng">
+<button onclick="add()">Add</button>
+<button onclick="sapXep()">Sắp xếp</button>
+<ul id="inRa"></ul>
+<p id="ketQua"></p>
+<script>
+    let a = []; // mảng lưu giá trị nhập
+    let daySo = document.getElementById("daySo");
+
+    function sapXep() {
+        // cách 1:
+        // let trungGian =0;
+        // let max = 0;
+        // for (let i = 0; i <a.length ; i++) {
+        // max = a[i];
+        //     for (let j = i; j < a.length; j++) {
+        //         if (max<a[j+1]) {
+        //             max = a[j+1];
+        //             trungGian = a[j+1];
+        //             a[j+1]=a[i];
+        //             a[i] = trungGian
+        //         }
+        //     }
+        // }
+        // inDanhSach(a);
+
+        // cách 2:
+        let tmp=0;
+        for (let i = 0; i < a.length ; i++) {
+            for (let j = 0; j < a.length; j++) {
+                if (a[j] < a[j+1]){
+                    tmp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = tmp;
+                }
+            }
+        }
+        inDanhSach(a);
+        // cách 3:
+    //     let tmp = a.sort(function (a, b) {
+    //         return b-a;
+    //     })
+    //     inDanhSach(tmp);
+    }
+
+    function ktSNT(i) {
+        let flag = true;
+        for (let j = 2; j <= i-1; j++) {
+            if (i%j==0){
+                flag = false;
+                break;
+            }
+        }
+        if (i===1){
+            flag = false;
+        }
+        return flag;
+    }
+
+    function add(){
+        let ketQua = +daySo.value;
+        a.push(ketQua);
+        inDanhSach(a);
+        daySo.value ='';
+    }
+
+    function inDanhSach(mang) {
+        let content = mang.map(function (item) {
+            return `<li>${item}</li>`;
+        })
+        document.getElementById("inRa").innerHTML = content.join('');
+    }
+
+</script>
+</body>
+</html>

@@ -7,7 +7,7 @@
     <title>Tính tiền lãi vay</title>
 </head>
 <body>
-<form action="">
+
     <div>
         <label>Số tiền vay:</label>
         <input type="text" name="" id="tien" placeholder="Nhập bằng số"> <span>VND</span>
@@ -21,7 +21,7 @@
         <input type="text" name="" id="laisuat" placeholder="Nhập bằng số"> <span>%năm</span>
     </div><br>
     <button onclick="tinhtoan()">Tính toán</button>
-</form>
+
 <table id="body">
         <tr>
             <th>Kỳ hạn</th>
@@ -81,7 +81,7 @@
 
         if (kyHan == 0) {
             cot1.innerHTML = kyHan;
-            cot2.innerText = updateNumber(gocCon);
+            cot2.innerText = gocCon;
             cot3.innerText = '';
             cot4.innerText = '';
             cot5.innerText = '';
@@ -96,10 +96,10 @@
             // `;
         } else {
             cot1.innerText = kyHan;
-            cot2.innerText = updateNumber(gocCon);
-            cot3.innerText = updateNumber(gocThang);
-            cot4.innerText = updateNumber(laiThang);
-            cot5.innerText = updateNumber(phaiTra);
+            cot2.innerText = Math.round(gocCon).toLocaleString();
+            cot3.innerText = Math.round(gocThang).toLocaleString();
+            cot4.innerText = Math.round(laiThang).toLocaleString();
+            cot5.innerText = Math.round(phaiTra).toLocaleString();
             // body.innerHTML += `
             //     <tr>
             //         <td>${kyHan}</td>

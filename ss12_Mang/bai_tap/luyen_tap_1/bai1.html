@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<input type="text" id="daySo" placeholder="Nhập từng số vào mảng">
+<button onclick="add()">Add</button>
+<button onclick="kiemTra()">Kiểm tra</button>
+<ul id="inRa"></ul>
+<p id="ketQua"></p>
+<script>
+    let mang = [];
+    let count =0;
+    //kiemTra();
+    //add();
+    function kiemTra() {
+        for (let i = 0; i <mang.length ; i++) {
+            if (ktSNT(mang[i]) && mang[i] >10) {
+                count++;
+            }
+        }
+        document.getElementById("ketQua").innerHTML = "<b>"+ "Số lượng số nguyên tố lớn hơn 10 trong mảng là: "+ count+"</b>";
+    }
+    function ktSNT(i) {
+        let flag = true;
+        for (let j = 2; j <= i-1; j++) {
+            if (i%j==0){
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+    function add() {
+        let a = document.getElementById("daySo");
+        let b = +a.value;
+        mang.push(b);
+        let content = mang.map(function (item) {
+            return "<li>"+item+"</li>";
+        });
+        document.getElementById("inRa").innerHTML = content.join('');
+        a.value = '';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Bài 6</title>
+        </head>
+<body>
+<input type="text" id="daySo" placeholder="Nhập từng số vào mảng">
+<button onclick="add()">Add</button>
+<button onclick="kiemTra()">Kiểm tra số nguyên tố</button>
+<ul id="inRa"></ul>
+<p id="ketQua"></p>
+<script>
+    let a = []; // mảng lưu giá trị nhập
+    let b=[];   // mảng lưu số nguyên tố
+    let daySo = document.getElementById("daySo");
+
+    function kiemTra() {
+        let nguyenTo = false;
+        for (let i = 0; i <a.length ; i++) {
+            if (ktSNT(a[i])) {
+                b.push(a[i]);
+                nguyenTo = true;
+            }
+        }
+        inDanhSach(b);
+        inThongBao(nguyenTo);
+    }
+    function ktSNT(i) {
+        let flag = true;
+        for (let j = 2; j <= i-1; j++) {
+            if (i%j==0){
+                flag = false;
+                break;
+            }
+        }
+        if (i===1){
+            flag = false;
+        }
+        return flag;
+    }
+
+    function add(){
+        let ketQua = +daySo.value;
+        a.push(ketQua);
+        inDanhSach(a);
+        daySo.value ='';
+    }
+
+    function inDanhSach(mang) {
+        let content = mang.map(function (item) {
+            return `<li>${item}</li>`;
+        })
+        document.getElementById("inRa").innerHTML = content.join('');
+    }
+    function inThongBao(flag) {
+        if (flag) {
+            document.getElementById("ketQua").innerHTML = `<b>${b.join(', ')} is in the array</b>`;
+        }else {
+            document.getElementById("ketQua").innerHTML = `<b>${b.toString()} is not in the array</b>`;
+        }
+    }
+</script>
+</body>
+</html>

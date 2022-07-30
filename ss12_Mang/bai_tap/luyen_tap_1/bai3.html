@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<input type="text" id="daySo" placeholder="Nhập từng số vào mảng">
+<button onclick="add()">Add</button>
+<button onclick="kiemTra()">Tính trung bình</button>
+<ul id="inRa"></ul>
+<p id="ketQua"></p>
+<script>
+    let a = [];
+    let daySo = document.getElementById("daySo");
+
+    function kiemTra() {
+        let tong= 0;
+        for (let i = 0; i < a.length; i++) {
+            tong += a[i];
+        }
+        let trungBinh = tong / a.length;
+        document.getElementById("ketQua").innerHTML = `<b>Giá trị trung bình các phần tử trong mảng là ${trungBinh.toLocaleString()}</b>`;
+    }
+    function add(){
+        let ketQua = +daySo.value;
+        a.push(ketQua);
+        let content = a.map(function (item) {
+            return `<li>${item}</li>`;
+        })
+        document.getElementById("inRa").innerHTML = content.join('');
+        daySo.value ='';
+    }
+</script>
+</body>
+</html>
