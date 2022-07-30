@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<input type="text" id="dayKyTu" placeholder="Nhập từng ký tự vào mảng">
+<button onclick="add()">Add</button>
+<button onclick="kiemTra()">Kiểm tra</button>
+<ul id="inRa"></ul>
+<p id="ketQua"></p>
+<script>
+    let a = [];
+    let dayKyTu = document.getElementById("dayKyTu");
+
+    function kiemTra() {
+        let count=0;
+        let b = [];
+        for (let i = 0; i < a.length; i++) {
+            if (a[i]==='' || a[i]===' '){
+                continue;
+            } else {
+                count++;
+                b.push(a[i]);
+            }
+        }
+        document.getElementById("ketQua").innerHTML = `Số ký tự trong mảng là: <b>${count}</b> và các ký tự là: <b>${b.join(", ")}</b>`;
+    }
+    function add(){
+        let ketQua = dayKyTu.value;
+        a.push(ketQua);
+        inRa();
+        dayKyTu.value ='';
+    }
+    function inRa() {
+        let mang = a.map(function (item) {
+            return `<li>${item}</li>`;
+        })
+        document.getElementById("inRa").innerHTML = mang.join('');
+    }
+</script>
+</body>
+</html>

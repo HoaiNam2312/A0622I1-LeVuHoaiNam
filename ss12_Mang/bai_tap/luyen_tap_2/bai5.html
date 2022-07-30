@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let flag = true;
+    let chuoi1 = prompt("Nhập chuỗi thứ nhất 1: ");
+    let chuoi2 = prompt("Nhập chuỗi thứ nhất 1: ");
+    let mang1 = chuoi1.split(" ");
+    let mang2 = chuoi2.split(" ");
+    for (let i = 0; i < mang1.length; i++) {
+        if (mang1[i] !== mang2[i]) {
+            flag = false;
+            break;
+        }
+    }
+    if (flag){
+        alert("Hai chuỗi vừa nhập giống nhau");
+    }else{
+        alert("Hai chuỗi vừa nhập khác nhau");
+    }
+</script>
+</body>
+</html>

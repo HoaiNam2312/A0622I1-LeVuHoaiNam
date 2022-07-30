@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<input type="text" id="dayKyTu" placeholder="Nhập đoạn văn bản">
+<button onclick="add()">Add</button>
+<button onclick="kiemTra()">Kiểm tra số từ</button>
+<ul id="inRa"></ul>
+<p id="ketQua"></p>
+<script>
+    let a = [];
+    let dayKyTu = document.getElementById("dayKyTu");
+
+    function kiemTra() {
+        document.getElementById("ketQua").innerHTML = `Số ký từ trong chuỗi vừa nhập là : <b>${a.length}</b>`;
+    }
+    function add(){
+        let chuoi = dayKyTu.value;
+        a = chuoi.split(" ");
+        inRa();
+        dayKyTu.value ='';
+    }
+    function inRa() {
+        let mang = a.map(function (item) {
+            return `<li>${item}</li>`;
+        })
+
+        document.getElementById("inRa").innerHTML = mang.join('');
+    }
+</script>
+</body>
+</html>
