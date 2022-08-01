@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let mang1 = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let mang2 = ['UrsaMinor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+    let ten = prompt("Nhập tên ngôi sao: ");
+    kiemTra(ten);
+    function kiemTra(tenNgoiSao) {
+        let flag = true; // không tìm thấy
+        for (let i = 0; i < mang1.length; i++) {
+            if (tenNgoiSao === mang1[i]){
+                flag = false; // tìm thấy
+                alert("Chòm sao tương ứng với ngôi sao"+tenNgoiSao+" là: "+mang2[i]);
+                break;
+            }else {
+                continue;
+            }
+        }
+        if (flag){
+            alert("Ngôi sao "+tenNgoiSao+" không được tìm thấy!");
+        }
+    }
+</script>
+</body>
+</html>
