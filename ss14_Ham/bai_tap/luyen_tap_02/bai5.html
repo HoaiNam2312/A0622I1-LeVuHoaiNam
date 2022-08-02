@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let num1 = +prompt("Nhập số nguyên thứ nhất: ");
+    let num2 = +prompt("Nhập số nguyên thứ hai: ");
+    let num3 = +prompt("Nhập số nguyên thứ ba: ");
+    alert("Số nhỏ nhất là: "+kiemTra(num1, num2, num3));
+    function kiemTra(a, b, c) {
+        if (a<b && a<c) {
+            return a;
+        } else if (b<a && b<c) {
+            return b;
+        } else {
+            return c;
+        }
+    }
+</script>
+</body>
+</html>

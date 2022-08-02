@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+
+    let num = +prompt("Nhập 1 số cần tìm giai thừa: ");
+    if (kiemTra(num)){
+        alert("Đây là ký tự số");
+    } else {
+        alert("Đây không phải là ký tự số");
+    }
+    function kiemTra(a) {
+        let flag = Number.isInteger(a) || Number.isFinite(a);
+        return flag;
+    }
+</script>
+</body>
+</html>

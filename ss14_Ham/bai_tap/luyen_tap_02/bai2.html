@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    let R = +prompt("Nhập bán kính đường tròn: ");
+    alert("Diện tích đường tròn là: "+dienTich(R));
+    alert("Chu vi đường tròn là: "+chuVi(R));
+
+    function dienTich(r) {
+        let s = 3.14 * Math.pow(r, 2);
+        return s;
+    }
+
+    function chuVi(r) {
+        let p = 2*r*3.14;
+        return p.toFixed(3);
+    }
+
+</script>
+</body>
+</html>
