@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<script>
+    let num1 = +prompt("Nhập số thứ nhất: ");
+    let num2 = +prompt("Nhập số thứ hai: ");
+    doiSo(num1, num2);
+
+    function doiSo(a, b) {
+        let c = a;
+        a = b;
+        b = c;
+        alert("Số thứ nhất là "+a+" và số thứ hai là: "+b);
+    }
+</script>
+</body>
+</html>

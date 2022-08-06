@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng quản lý</title>
+</head>
+<body>
+<h2>Add New Product</h2>
+<input type="text" id="newProduct" placeholder="New Product">
+<button type="button" onclick="add()">Add</button>
+<h3>Display All Product</h3>
+<table id="listProduct"><b>Product Name</b>
+
+</table>
+<p id="soLuong"></p>
+
+<script>
+    let newProduct = document.getElementById("newProduct");
+    let arr = [];
+
+    function add() {
+        let product = newProduct.value;
+        arr.push(product);
+        display();
+        newProduct.value = '';
+    }
+    function display() {
+        let content = arr.map(function (item, index) {
+            return `<tr> <td><span style="margin-right: 100px;margin-left: 15px">${item}</span></td>
+                         <td><button onclick="edit(${index})" style="margin-right: 20px">Edit</button></td>
+                         <td><button onclick="xoa(${index})">Delete</button></td></tr>`;
+        });
+        document.getElementById("listProduct").innerHTML = content.join('');
+        document.getElementById("soLuong").innerHTML = `<b>Số lượng:</b> ${arr.length}`;
+    }
+    function edit(num) {
+        arr.splice(num, 1, prompt("New Product: "));
+        display();
+    }
+    function xoa(num) {
+        arr.splice(num,1);
+        display();
+    }
+</script>
+</body>
+</html>

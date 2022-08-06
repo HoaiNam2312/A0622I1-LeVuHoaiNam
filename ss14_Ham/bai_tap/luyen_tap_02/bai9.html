@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<script>
+    let array = ['+','_','~','?','<','>','>','<','?','+','=','-','_','+'];
+    let str = prompt("Nhập 1 kỹ tự bất kì");
+    alert(`Vậy có ${kiemTra(str)} ký tự '${str}' trong mảng cho trước`);
+
+    function kiemTra(a) {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (a===array[i]){
+                count++;
+            }
+        }
+        if (count != 0){
+            return count;
+        } else {
+            return -1;
+        }
+    }
+</script>
+</body>
+</html>

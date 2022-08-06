@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình chữ nhật</title>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="500" style="border:3px solid black;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+<p  id="demo"></p>
+</body>
+<script>
+    function Rectangle(dai, rong) {
+        this.chieuDai = dai;
+        this.chieuRong = rong;
+        this.dienTich = function () {
+            return dai*rong;
+        }
+        this.chuVi = function () {
+            return (dai+rong)*2;
+        }
+        this.hienThi = function (x,y,dai,rong) {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.rect(x,y,dai,rong);
+            //ctx.fillStyle = "red";
+            ctx.stroke();
+        }
+    }
+    let hinhChuNhat = new Rectangle(150, 100);
+    document.getElementById("demo").innerHTML = hinhChuNhat.dienTich()+"<br>"+hinhChuNhat.chuVi();
+    hinhChuNhat.hienThi(20,20,250,300);
+</script>
+</html>

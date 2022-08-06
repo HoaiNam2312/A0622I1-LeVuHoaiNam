@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô trả Temperature</title>
+</head>
+<body>
+<p id="demo"></p>
+<script>
+    function Temperature() {
+        this.doC;
+        this.cToF = function () {
+           return this.doC*1.8+32;
+        };
+        this.cToK = function () {
+            return this.doC+263.15;
+        }
+    }
+    let nhietDo = new Temperature();
+    nhietDo.doC = +prompt("Nhập độ C: ");
+    document.getElementById("demo").innerHTML = "Độ F tương ứng là: "+nhietDo.cToF()+"<br>"+"Độ K tương ứng là: "+nhietDo.cToK();
+</script>
+</body>
+</html>

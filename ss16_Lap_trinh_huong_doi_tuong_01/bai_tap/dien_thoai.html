@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điện thoại</title>
+</head>
+<body>
+<script>
+    function Mobile() {
+        this.pin = Math.floor(Math.random()*101);
+        this.soanThao = this.soanTinNhan();
+        this.thuDen;
+        this.daGui = this.guiTinNhan();
+        this.trangThai = function () {
+
+        };
+        this.luu = function () {
+            return this.thuDen + this.nhanTinNhan()
+        }
+        this.batTat = function (a) {
+            if (a===1){
+                return true;
+            } else if (a===0){
+                return false;
+            } else {
+                alert("1 là bật hoặc 0 là tắt điện thoại");
+            }
+        }
+        this.xacPin = function (a) {
+            if (a===1){
+                return true;
+            } else if (a===0){
+                return false;
+            } else {
+                alert("1 là có đang xạc hoặc 0 là không đang xạc");
+            }
+        }
+        this.soanTinNhan = function () {
+            return prompt("Soạn tin nhắn: ");
+        }
+        this.nhanTinNhan = function () {
+            return this.thuDen;
+        }
+        this.guiTinNhan = function () {
+            return this.soanTinNhan();
+        }
+        this.xemTin
+    }
+</script>
+</body>
+</html>
