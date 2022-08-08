@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<div id="game"></div>
+
+<script>
+    function Hero(image, top, left, size){
+        this.image = image;
+        this.top = top;
+        this.left = left;
+        this.size = size;
+
+        this.getHeroElement = function () {
+            return `<img src="${this.image}" width="${this.size}" height="${this.size}" style="position: absolute; top: ${this.top}px; left: ${this.left}px">`;
+        }
+
+        this.moveRight = function(){
+            this.left += 5;
+            console.log('left: ' + this.left);
+        }
+
+        this.moveDown = function () {
+            this.top += 5;
+            console.log('top: ' + this.top);
+        }
+
+        this.moveLeft = function () {
+            this.left -= 5;
+            console.log('left: ' + this.left);
+        }
+
+        this.moveUp = function () {
+            this.top -= 5;
+            console.log('top: ' + this.top);
+        }
+    }
+
+    var hero = new Hero('https://github.com/codegym-vn/objects/blob/master/pikachu.png?raw=true', 0, 0, 200);
+
+    function start(){
+        if(hero.left <= 1335 && hero.top==0){
+            hero.moveRight();
+        }else if (hero.left>1335 && hero.top<=525) {
+            hero.moveDown();
+        }else if (hero.left<=1440 && hero.top==530 && hero.left>=0){
+            hero.moveLeft();
+        }else if (hero.left==-5 && hero.top <=530){
+            hero.moveUp();
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 10)
+    }
+
+    start();
+</script>
+</body>
+</html>
