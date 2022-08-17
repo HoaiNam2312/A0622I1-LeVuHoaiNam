@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = 5;
+    for (let i = 0; i < a ; i++) {
+        for (let j = 1; j < a*2; j++) {
+            if (j>=a-i && j<=a+i){
+                document.write("*");
+            }else {
+                document.write("&nbsp ");
+            }
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

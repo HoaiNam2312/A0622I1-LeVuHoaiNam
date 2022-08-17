@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+
+    function main() {
+        let text = prompt("nhập đại đi:").toLowerCase();
+        let arr = xoaKhoangTrong(text);
+        arr = vietHoaChuDauTien(arr);
+        let tuDaiNhat = timTuDaiNhat(arr);
+        alert(`Hàm ban đầu: ${text}
+               Hàm sau khi sửa: ${arr.join(' ')}
+               Từ dài nhất: ${tuDaiNhat}`);
+    }
+    main();
+    function timTuDaiNhat(arr) {
+        let max = arr[0].length;
+        let count =0;
+        for (let i = 1; i <arr.length; i++) {
+            if (max < arr[i].length){
+                max = arr[i].length;
+                count = i;
+            }
+        }
+        return arr[count];
+    }
+    
+    function xoaKhoangTrong (text) {
+        let b = text.split(" ");
+        let count = 0;
+        for (let i = 0; i < b.length; i++) {
+            if (b[i] === '') {
+                for (let j = i; j < b.length; j++) {
+                    if (b[j] === '') {
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+            }
+            if (count != 0) {
+                b.splice(i, count);
+                count = 0;
+            }
+        }
+        return b;
+    }
+
+    function vietHoaChuDauTien (arr) {
+        let arr2 = arr.map(function (element) {
+            return element.replace(element.charAt(0), element.charAt(0).toUpperCase());
+        })
+        return arr2;
+    };
+</script>
+</body>
+</html>

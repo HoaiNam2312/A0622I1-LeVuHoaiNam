@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    let m = +prompt("Nhập số hàng: ");
+    let n = +prompt("Nhập số cột: ");
+    let arr = new Array(m);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = new Array(n);
+    }
+    nhapPhanTu(arr);
+    alert(tongSoChan(arr));
+    function nhapPhanTu(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                arr[i][j] = +prompt(`Nhập phần tử thứ ${i}${j} của mãng`);
+            }
+        }
+    }
+    function tongSoChan(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] % 2==0){
+                    sum += arr[i][j];
+                }
+            }
+        }
+        return sum;
+    }
+</script>
+</body>
+</html>

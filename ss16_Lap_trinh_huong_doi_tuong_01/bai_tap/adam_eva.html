@@ -26,16 +26,21 @@
         this.say = function (text) {
             console.log(text);
         }
-        this.eat = function (someThing) {
-            if (this.check(someThing)){
-                someThing.decrease();
+        this.setApple = function (apple) {
+            this.apple = apple;
+        }
+        this.eat = function () {
+            if (this.check()){
+                this.apple.decrease();
                 this.weight++;
+                this.apple.getInfo();
+                this.checkWeight();
             }else {
                 console.log("Hết táo");
             }
         };
-        this.check = function (someThing) {
-            if (!someThing.isEmpty()){
+        this.check = function () {
+            if (!this.apple.isEmpty()){
                 return true;
             } else {
                 return false;
@@ -69,17 +74,10 @@
     conNguoi.checkWeight();
     conNguoi.setGender(false);
     conNguoi.isMale();
-    conNguoi.eat(apple);
-    conNguoi.eat(apple);
-    conNguoi.eat(apple);
-    conNguoi.eat(apple);
-    conNguoi.eat(apple);
-    conNguoi.eat(apple);
-    conNguoi.eat(apple);
-    conNguoi.eat(apple);
-    conNguoi.eat(apple);
-    conNguoi.eat(apple);
-    conNguoi.eat(apple);
+    conNguoi.setApple(apple);
+    for (let i = 0; i < 15; i++) {
+        conNguoi.eat();
+    }
     conNguoi.checkWeight();
     apple.getInfo();
 </script>

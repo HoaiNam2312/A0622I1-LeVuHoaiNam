@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhà cái Hoài Nam</title>
+    <style>
+        td input{
+            width: 50px;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-left: 2px;
+        }
+    </style>
+</head>
+<body>
+<h2>Nhà cái Hoài Nam</h2>
+<table id="hienThi">
+</table>
+<h3 id="oke"></h3>
+<table id="inKetQua"></table>
+<button type="button" onclick="muaVe()" id="muaVe">Mua vé</button>
+<button type="button" onclick="xemKetQua()">Xem kết quả</button>
+<script>
+    let count = 0;
+    let soKH = [];
+    let soKQ = new Array(6);
+function muaVe() {
+    if (count%2==0) {
+        let luaChon = +prompt("Bạn có 2 lựa chọn:" +
+            "\n1. Bạn muốn tự chọn số." +
+            "\n2.Hệ thống tự Random.");
+        if (luaChon===1) {
+            let strHTML = '<h3>Vé của bạn: </h3>';
+            strHTML += '<tr>'
+            for (let j = 1; j <= 6; j++) {
+                strHTML += `<td width="60px"><input type="number" min="0" max="99" class="soThu${j}"></td>`;
+            }
+            strHTML += '</tr>'
+            document.getElementById("hienThi").innerHTML = strHTML;
+            document.getElementById('muaVe').innerText = 'Hoàn tất';
+        } else {
+            let strHTML = '<h3>Vé của bạn: </h3>';
+            strHTML += '<tr>'
+            for (let j = 1; j <= 6; j++) {
+                strHTML += `<td width="60px"><input type="number" min="0" max="99" class="soThu${j}" value="${Math.floor(Math.random()*100)}"></td>`;
+            }
+            strHTML += '</tr>'
+            document.getElementById("hienThi").innerHTML = strHTML;
+            document.getElementById('muaVe').innerText = 'Hoàn tất';
+        }
+        count++;
+    } else {
+        for (let i = 1; i <= 6; i++) {
+            soKH.push(document.querySelector(`.soThu${i}`).value);
+        };
+        inKetQua();
+        document.getElementById('muaVe').innerText = 'Mua vé';
+        count++;
+    }
+}
+
+function inKetQua() {
+    document.getElementById("oke").innerText = 'Kết quả: ';
+    for (let i = 0; i < soKQ.length; i++) {
+        soKQ[i] = Math.floor(Math.random()*100);
+    };
+    let mang2 = soKQ.map(function (item) {
+        return `<td width="60px"><input type="text" min="0" max="99" value="${item}"></td>`;
+    });
+    document.getElementById("inKetQua").innerHTML= mang2.join('');
+}
+
+function xemKetQua() {
+    let soTrung = 0;
+    for (let i = 0; i < soKH.length; i++) {
+        if (soKH[i]===soKQ[i]){
+            soTrung++;
+        } else if (i>=1 && soKH[i]===soKQ[i]){
+            soTrung++;
+            // alert("Chúc mừng bạn đã trúng giải nhì");
+        } else if (i>=3 && soKH[i]===soKQ[i]){
+            soTrung++;
+            // alert("Chúc mừng bạn đã trúng giải ba");
+        }
+    }
+    switch (soTrung) {
+        case 6:
+            alert("Chúc mừng bạn đã trúng giải NHẤT.");
+            break;
+        case 5:
+            alert("Chúc mừng bạn đã trúng gải NHÌ.");
+            break;
+        case 3:
+            alert("Chúc mừng bạn đã trúng giải BA.");
+            break;
+        default:
+            alert("Chúc bạn may mắn lần sau.");
+    }
+}
+</script>
+</body>
+</html>

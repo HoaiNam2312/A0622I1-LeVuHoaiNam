@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Baì 2</title>
+</head>
+<body>
+<script>
+    let m = +prompt("Số hàng: ");
+    let n = +prompt("Số cột: ");
+    let A = taoMang(m, n);
+    kiemTra(ganPhanTu(A));
+
+    function kiemTra(arr) {
+        let mang = [];
+        for (let i = 0; i < A.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (kiemTraSoNguyen(arr[i][j])){
+                    mang.push(arr[i][j]);
+                }
+            }
+        }
+        alert(`Mảng có ${mang.length} nguyên tố là: ${mang.join(', ')}`);
+    }
+
+    function taoMang(m, n) {
+        let mang = new Array(m);
+        for (let i = 0; i < mang.length; i++) {
+            mang[i] = new Array(n);
+        }
+        return mang;
+    }
+    function ganPhanTu(arr) {
+        for (let i = 0; i <arr.length ; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                arr[i][j] = +prompt(`Nhâp phần tử ${i}x${j} của mảng:`);
+            }
+        }
+        return arr;
+    }
+    function kiemTraSoNguyen(a) {
+        if (a==0 || a== 1){
+            return false
+        }
+        for (i=2;i<a;i++){
+            if (a%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    let m = +prompt("Số hàng: ");
+    let n = +prompt("Số cột: ");
+    let A = taoMang(m, n);
+    A = ganPhanTu(A);
+    alert(`Số lớn nhất trong mảng là: ${soLonNhat(A)},
+Số nhỏ nhất trong mảng là: ${soNhoNhat(A)}`);
+
+    function taoMang(m, n) {
+        let mang = new Array(m);
+        for (let i = 0; i < mang.length; i++) {
+            mang[i] = new Array(n);
+        }
+        return mang;
+    }
+    function ganPhanTu(arr) {
+        for (let i = 0; i <arr.length ; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                arr[i][j] = +prompt(`Nhâp phần tử ${i}x${j} của mảng:`);
+            }
+        }
+        return arr;
+    }
+    function soNhoNhat(arr) {
+        let min = arr[0][0];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (min > arr[i][j]){
+                    min = arr[i][j];
+                }
+            }
+        }
+        return min;
+    }
+
+    function soLonNhat(arr) {
+        let max = arr[0][0];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (max < arr[i][j]){
+                    max = arr[i][j];
+                }
+            }
+        }
+        return max;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    let text = prompt("Nhập 1 đoạn ký tự bất kì: ");
+    alert(timSoKyTuKhacNhau(text));
+    function timSoKyTuKhacNhau(text) {
+        let flag = true;
+        let mangLuuTru = text.split('');
+        let mangDoiChieu = [];
+        mangDoiChieu[0] = mangLuuTru[0];
+        for (let i = 1; i < mangLuuTru.length; i++) {
+            for (let j = 0; j < mangDoiChieu.length; j++) {
+                if (mangLuuTru[i]==mangDoiChieu[j]){
+                    flag = false;
+                    break;
+                }else {
+                    flag = true;
+                }
+            }
+            if (flag)
+            mangDoiChieu.push(mangLuuTru[i]);
+        }
+        return mangDoiChieu.length;
+    }
+
+</script>
+</body>
+</html>
