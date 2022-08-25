@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP</title>
+    <style>
+        #box1 {
+            position: relative;
+        }
+        #box11 {
+            position: absolute;
+            left: 80px;
+        }
+        button {
+            margin-top: 20px;
+        }
+        #box2 {
+            margin-top: 150px;
+            position: relative;
+        }
+        #soTrungThuong {
+            position: absolute;
+            left: 80px;
+        }
+
+    </style>
+</head>
+<body>
+<h2>Xổ số</h2>
+<div id="box1">
+    <h4>Số của bạn:</h4>
+    <div id="box11">
+        <table id="soCuaBan">
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+        </table>
+        <button type="button" id="muaVe" onclick="muaVe()">Mua vé</button>
+        <button type="button" onclick="kiemTra()" style="margin-left: 20px">Xem kết quả</button>
+    </div>
+</div>
+<div id="box2">
+    <h4>Số trúng thưởng:</h4>
+    <table id="soTrungThuong">
+        <td><input type="number"></td>
+        <td><input type="number"></td>
+        <td><input type="number"></td>
+        <td><input type="number"></td>
+        <td><input type="number"></td>
+        <td><input type="number"></td>
+    </table>
+</div>
+<script>
+class So {
+    constructor(num1,num2,num3,num4,num5,num6) {
+        this.num1 = num1;
+        this.num2 = num2;
+        this.num3 = num3;
+        this.num4 = num4;
+        this.num5 = num5;
+        this.num6 = num6;
+    }
+    setNum (stt,num){
+        switch (stt) {
+            case 0:
+                this.num1 = num;
+                break;
+            case 1:
+                this.num2 = num;
+                break;
+            case 2:
+                this.num3 = num;
+                break;
+            case 3:
+                this.num4 = num;
+                break;
+            case 4:
+                this.num5 = num;
+                break;
+            case 5:
+                this.num6 = num;
+                break;
+        }
+    }
+    getNum1(num) {
+        return this.num1 = num;
+    }
+    getNum2(num) {
+        return this.num2 = num;
+    }
+    getNum3(num) {
+        return this.num3 = num;
+    }
+    getNum4(num) {
+        return this.num4 = num;
+    }
+    getNum5(num) {
+        return this.num5 = num;
+    }
+    getNum6(num) {
+        return this.num6 = num;
+    }
+    kiemTra(obj){
+        if (this.num1 == obj.num1 && this.num2 == obj.num2 && this.num3 == obj.num3 && this.num4 == obj.num4 && this.num5 == obj.num5 && this.num6 == obj.num6){
+            return 6;
+        } else if (this.num2 == obj.num2 && this.num3 == obj.num3 && this.num4 == obj.num4 && this.num5 == obj.num5 && this.num6 == obj.num6){
+            return 5;
+        } else if (this.num4 == obj.num4 && this.num5 == obj.num5 && this.num6 == obj.num6){
+            return 3;
+        } else {
+            return -1;
+        }
+
+    }
+}
+let count = 0;
+
+let soNguoiMua = new So();
+let soTrungThuong = new So();
+let luaChon;
+function muaVe() {
+    if (count%2==0){
+        luaChon = +prompt("Bạn có 2 lựa chọn:" +
+            "\n1. Bạn muốn tự chọn số." +
+            "\n2.Hệ thống tự Random.");
+        if (luaChon == 2){
+            soNguoiMua = random("soCuaBan", soNguoiMua);
+        }
+        document.getElementById("muaVe").innerText = 'Hoàn tất';
+        count = 1;
+    } else {
+        if (luaChon==1){
+            soNguoiMua = tuChon("soCuaBan", soNguoiMua);
+            console.log(soNguoiMua);
+        }
+        document.getElementById("muaVe").innerText = 'Mua vé';
+        count = 0;
+    }
+}
+function kiemTra() {
+    if (count==1){
+        alert("Bạn phải bấm 'Hoàn tất' rồi mới bấm 'xem kết quả'");
+    } else {
+        soTrungThuong = random('soTrungThuong', soTrungThuong);
+        let giai = soTrungThuong.kiemTra(soNguoiMua)
+        if (giai == 6) {
+            alert("Chúc mừng bạn đã trúng giải nhất");
+        } else if (giai == 5) {
+            alert("Chúc mừng bạn đã trúng giải nhì");
+        } else if (giai == 3) {
+            alert("Chúc mừng bạn đã trúng giải ba");
+        } else {
+            alert('Chúc bạn may mắn lần sau');
+        }
+    }
+}
+function random(id, so) {
+    let inputElement = document.getElementById(id).querySelectorAll('input');
+    for (let i = 0; i < inputElement.length; i++) {
+        inputElement[i].value = Math.floor(Math.random()*100);
+        so.setNum(i, inputElement[i].value);
+    }
+    return so;
+}
+function tuChon(id, so) {
+    let inputElement = document.getElementById(id).querySelectorAll('input');
+    for (let i = 0; i < inputElement.length; i++) {
+        so.setNum(i, inputElement[i].value);
+    }
+    return so;
+}
+</script>
+</body>
+</html>

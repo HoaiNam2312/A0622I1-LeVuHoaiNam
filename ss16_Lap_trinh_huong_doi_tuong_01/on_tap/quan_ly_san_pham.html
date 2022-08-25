@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý đồng hồ</title>
+</head>
+<body>
+<input type="text" placeholder="Nhập Id sản phẩm" id="id">
+<input type="text" placeholder="Nhập Brand sản phẩm" id="brand">
+<input type="text" placeholder="Nhập Price sản phẩm" id="price">
+<input type="text" placeholder="Nhập Rate sản phẩm" id="rate">
+<input type="button" value="Add" onclick="add()">
+<p id="hienthi"></p>
+<script>
+    class DongHo{
+        constructor(id,brand,price,rate) {
+            this.id = id;
+            this.brand = brand;
+            this.price = price;
+            this.rate = rate;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        setBrand(brand) {
+            this.brand = brand;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        setRate(rate) {
+            this.rate = rate;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        getBrand() {
+            return this.brand;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+        getRate() {
+            return this.rate;
+        }
+    }
+    let dong1 = new DongHo(23,"Casio",250,4);
+    let dong2 = new DongHo(35,"Hoblot",550,5);
+    let dong3 = new DongHo(33,"Fossi",650,4);
+
+    let list = [];
+    list.push(dong1,dong2,dong3);
+
+    function display() {
+        sapXepTheoTen();
+        let str = '<table border="1" style="border-collapse: collapse;text-align: center">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Id</th>\n' +
+            '        <th>Brand</th>\n' +
+            '        <th>Price</th>\n' +
+            '        <th>Rate</th>\n' +
+            '        <th>Edit</th>\n' +
+            '        <th>Delete</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < list.length; i++) {
+            str += '<tr>\n' +
+                '        <td>'+(i+1)+'</td>\n' +
+                '        <td>'+ list[i].getId() +'</td>\n' +
+                '        <td>'+list[i].getBrand()+'</td>\n' +
+                '        <td>'+list[i].getPrice()+'</td>\n' +
+                '        <td>'+list[i].getRate()+'</td>\n' +
+                '        <td><input type="button" value="Edit" onclick="edit('+i+')"></td>\n' +
+                '        <td><input type="button" value="Delet" onclick="remove('+i+')"></td>\n' +
+                '    </tr>'
+        }
+        str += '</table>';
+        document.getElementById("hienthi").innerHTML=str;
+    }
+    display();
+    function remove(i) {
+        list.splice(i,1);
+        display();
+    }
+    function edit(i) {
+        list[i].setId(+prompt("Nhập Id:"));
+        list[i].setBrand(prompt("Nhập Brand:"));
+        list[i].setPrice(+prompt("Nhập Price:"));
+        list[i].setRate(+prompt("Nhập Rate:"));
+        display();
+    }
+    function add() {
+        let id = +document.getElementById("id").value;
+        let brand = document.getElementById("brand").value;
+        let price = +document.getElementById("price").value;
+        let rate = +document.getElementById("rate").value;
+        let dongHoMoi = new DongHo(id,brand,price,rate);
+        list.push(dongHoMoi);
+        display();
+        document.getElementById("id").value= '';
+        document.getElementById("brand").value = '';
+        document.getElementById("price").value = '';
+        document.getElementById("rate").value = '';
+    }
+
+    function sapXepTheoTen() {
+        list.sort(function (a, b) {
+            if(a.getBrand() > b.getBrand()){
+                return -1;
+            }
+            if(a.getBrand() < b.getBrand()){
+                return 1;
+            }
+            if(a.getBrand() == b.getBrand()){
+                return 0;
+            }
+        })
+    }
+</script>
+</body>
+</html>

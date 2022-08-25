@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+    <style>
+        img {
+            width: 140px;
+        }
+        td {
+            text-align: center;
+        }
+        #box1 {
+            float: left;
+        }
+        #box2 {
+            float: left;
+        }
+    </style>
+
+</head>
+<body>
+<div id="box1">
+<table border="1px">
+    <tr>
+        <td><img src="https://www.cocacolavietnam.com/content/dam/journey/vn/vi/brands/minute-maid/vietnam-mm-splash-orange-image.png" ></td>
+        <td><img src="https://www.nescafe.com/in/sites/default/files/2022-06/New-Intense-Cafe-Can-Artwork-21_RSA-3D.png" ></td>
+        <td><img src="https://sc04.alicdn.com/kf/Adc41c40e94124fe18024cd54075605ef8/1502117992/Adc41c40e94124fe18024cd54075605ef8.png" ></td>
+    </tr>
+    <tr>
+        <td><img src="http://cdn.shopify.com/s/files/1/0223/3113/products/tetris-blast-cans-rtd-g-fuel-gamer-drink-500184.png?v=1660062112" ></td>
+        <td><img src="https://www.heineken.com/media-us/npld0wfw/heineken-slim-can-product.png?quality=85" ></td>
+        <td><img src="https://www.naughtygrapett.com/wp-content/uploads/2021/09/Sprite_Can_8oz_12391049-min-600x600.png" ></td>
+    </tr>
+    <tr>
+        <td><img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1617206060-740714909-the-finnish-long-drink-can-1617205993.png?crop=0.6666666666666666xw:1xh;center,top&resize=480:*"></td>
+        <td><img src="https://milo.com.au/sites/default/files/2021-04/Milo-Original-Flavour-RTD-Can-240mL_3D-FOP.png"></td>
+        <td><img src="https://www.badgerbeers.com/wp-content/uploads/2020/11/TangleFoot_Can.png"></td>
+    </tr>
+</table>
+</div>
+<div id="box2">
+    <table>
+        <tr>
+            <td>01</td>
+            <td>02</td>
+            <td>03</td>
+        </tr>
+    </table>
+</div>
+<script>
+    let box1 = document.getElementById("box1");
+    class NuocGiaiKhat {
+        constructor(id,name,giaTien,soLuong) {
+            this.id = id;
+            this.name = name;
+            this.giaTien = giaTien;
+            this.soLuong = soLuong;
+        }
+        tinhTien() {
+            return this.soLuong*this.giaTien;
+        }
+    }
+    function hienThi() {
+        let tdElememt = box1.querySelectorAll('td');
+        for (let i = 0; i < tdElememt.length; i++) {
+            tdElememt[i].onclick = function () {
+                alert(i);
+            }
+        }
+    }
+    hienThi();
+</script>
+</body>
+</html>

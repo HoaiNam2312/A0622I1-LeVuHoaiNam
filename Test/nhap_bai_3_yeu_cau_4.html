@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bài 3 _ Yêu cầu 4</title>
+    <title>Title</title>
 </head>
 <body>
 <script>
@@ -58,15 +58,15 @@
             mangTach.push(str.substr(i));
         }
         loop1:
-            for (let i = 0; i < mangTach.length; i++) {
-                loop2:
-                    for (let j = 0; j < arr.length; j++) {
-                        if (mangTach[i]==arr[j]){
-                            arr3.push(mangTach[i]);
-                            break loop1;
-                        }
-                    }
+        for (let i = 0; i < mangTach.length; i++) {
+            loop2:
+            for (let j = 0; j < arr.length; j++) {
+                if (mangTach[i]==arr[j]){
+                    arr3.push(mangTach[i]);
+                    break loop1;
+                }
             }
+        }
     }
 </script>
 </body>
