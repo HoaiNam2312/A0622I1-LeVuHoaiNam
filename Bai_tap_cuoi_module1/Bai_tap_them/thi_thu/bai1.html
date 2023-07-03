@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập cố lượng phần tử: ");
+    while (n>50){
+        alert("Vui lòng nhập n<=50");
+        n = +prompt("Nhập cố lượng phần tử: ");
+    }
+    let mang = [];
+    for (let i = 0; i < n; i++) {
+        let a = +prompt("Nhập số thứ "+(i+1)+": ");
+        mang.push(a);
+    }
+    alert(mang);
+    let count =0;
+    let sum = 0;
+    for (let j = 0; j < mang.length; j++) {
+        if (mang[j]%5==0 && j%3==0){
+            sum+= mang[j];
+            count++;
+        }
+    }
+    alert("giá trị trung bình của các phần tử chia hết cho 5 ở vị trí chia hết cho 3: "+sum/count);
+</script>
+</body>
+</html>

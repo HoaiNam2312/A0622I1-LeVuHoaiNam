@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    function checkStr(str) {
+        let so = ['0','1','2','3','4','5','6','7','8','9'];
+        let chu = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ,'i' ,'k' , 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        let chuHoa= ['A', 'B', 'C', 'D', 'E', 'F,','G', 'H', 'I' ,'J', 'K', 'L', 'M,' ,'N', 'O', 'P,' ,'Q,', 'R', 'S', 'T', 'U' ,'V', 'W', 'X', 'Y', 'Z'];
+        let arr = str.split('');
+        let arr1 = [];
+        // let flag = false;
+        for (let i = 0; i < arr.length; i++) {
+            let dieuKien1 = so.includes(arr[i]); // kiểm tra 1 lần tử có tồn tại trong mảng hay ko
+            let dieuKien2 = chu.includes(arr[i]);
+            let dieuKien3 = chuHoa.includes(arr[i]);
+            // for (let j = 0; j < so.length; j++) {
+            //     if (arr[i]==so[j]){
+            //         flag = true;
+            //         break;
+            //     }
+            // }
+            // for (let k = 0; k < chu.length; k++) {
+            //     if (arr[i]==chu[k]){
+            //         flag = true;
+            //         break;
+            //     }
+            // }
+            // for (let h = 0; h < chuHoa.length; h++) {
+            //     if (arr[i]==chuHoa[h]){
+            //         flag = true;
+            //         break;
+            //     }
+            // }
+            // if (!flag){
+            //     arr1.push(arr[i]);
+            // }
+            // flag = false;
+            if (!dieuKien1 && !dieuKien2 && !dieuKien3){
+                arr1.push(arr[i]);
+            }
+        }
+        return arr1;
+    }
+    alert(checkStr(prompt("Nhập một chuỗi ký tự bất kỳ:")));
+</script>
+</body>
+</html>

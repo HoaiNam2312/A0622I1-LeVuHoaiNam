@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<h2>Ứng dụng quản lý máy tính</h2>
+<input type="text" placeholder="Id" id="id">
+<input type="text" placeholder="Name" id="name">
+<input type="text" placeholder="Brand" id="brand">
+<input type="text" placeholder="Price" id="price">
+<input type="button" value="Add" onclick="add()" style="margin-bottom: 20px">
+<div id="table"></div>
+    <body>
+    <script>
+        class Computer {
+            constructor(id, name, brand, price) {
+                this.name = name;
+                this.id = id;
+                this.brand = brand;
+                this.price = price;
+            }
+
+            setName(name) {
+                this.name = name;
+            }
+
+            setId(id) {
+                this.id = id;
+            }
+
+            setBrand(brand) {
+                this.brand = brand;
+            }
+
+            setPrice(price) {
+                this.price = price;
+            }
+
+            getName() {
+                return this.name;
+            }
+
+            getId() {
+                return this.id;
+            }
+
+            getBrand() {
+                return this.brand;
+            }
+
+            getPrice() {
+                return this.price;
+            }
+
+            toString() {
+                return alert(`${this.id} - ${this.name} - ${this.brand} - ${this.price}`);
+            }
+        }
+
+        function display(arr) {
+            let str = '<table border="1" style="border-collapse: collapse">' +
+                '<tr>\n' +
+                '<th>Id</th>\n' +
+                '<th>Name</th>\n' +
+                '<th>Brand</th>\n' +
+                '<th>Price</th>\n' +
+                '</tr>';
+            for (let i = 0; i < arr.length; i++) {
+                str += '<tr>' +
+                    '<td>' + arr[i].getId() + '</td>\n' +
+                    '<td>' + arr[i].getName() + '</td>\n' +
+                    '<td>' + arr[i].getBrand() + '</td>\n' +
+                    '<td>' + arr[i].getPrice().toLocaleString()+' VNĐ' + '</td>\n' +
+                    '</tr>';
+            }
+            str += '</table>'
+            document.getElementById('table').innerHTML = str;
+            document.getElementById("id").value = '';
+            document.getElementById("name").value = '';
+            document.getElementById("brand").value = '';
+            document.getElementById("price").value = '';
+        }
+
+        let danhSach = [];
+
+        function add() {
+            let id = document.getElementById("id").value;
+            let name = document.getElementById("name").value;
+            let brand = document.getElementById("brand").value;
+            let price = +document.getElementById("price").value;
+            let mayTinh = new Computer(id, name, brand, price);
+            danhSach.push(mayTinh);
+            display(danhSach);
+            console.log(danhSach);
+        }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    let b = [];
+    let n = +prompt("Nhập số lượng phần tử n: ");
+    while (n > 50 || n<=0) {
+        n = +prompt("Vui lòng nhập lại số lượng phần tử n=(0,50): ");
+    }
+    let a = [];
+    for (let i = 0; i < n; i++) {
+        let element = +prompt("Nhập số thứ " + (i + 1) + ": ");
+        a.push(element);
+    }
+    alert("Mảng bạn vừa nhập là: "+a);
+    for (let i = 0; i < a.length; i++) {
+        if (kiemTraSoNguyenTo(a[i])) {
+            b.push(a[i]);
+        }
+    }
+    alert("Tập hợp các số nguyên tố có trong mảng bạn vừa nhập là " +b);
+
+    function kiemTraSoNguyenTo(a) {
+        let flag = true;
+        if (a < 2) {
+            flag = false;
+        } else {
+            for (let i = 2; i <= a - 1; i++) {
+                if (a % i === 0) {
+                    flag = false;
+                    break;
+                }
+            }
+        }
+        if (flag) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

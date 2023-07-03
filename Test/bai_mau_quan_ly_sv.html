@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="id" placeholder="Nhập id">
+<input type="text" id="name" placeholder="Nhập tên">
+<input type="date" id="birthday" placeholder="Nhập ngày sinh">
+<input type="number" id="point" placeholder="Nhập point">
+<input type="button" value="Add" onclick="addNewStudent()"  id="add">
+<p id="result"></p>
+<script>
+    let studentList = [];
+    let edit = false;
+    let editElement = 0;
+    // tạo class sinh vien : id,name,birthday, point
+    // viết setter getter
+    class Student {
+        constructor(id, name, birthday, point) {
+            this.id = id;
+            this.name = name;
+            this.birthday = birthday;
+            this.point = point;
+        }
+        setId(id) {
+            this.id = id;
+        }
+        setName(name) {
+            this.name = name;
+        }
+        setBirthday(birthday) {
+            this.birthday = birthday;
+        }
+        setPoint(point) {
+            this.point = point;
+        }
+        getId() {
+            return this.id;
+        }
+        getName() {
+            return this.name;
+        }
+        getBirthday() {
+            return this.birthday;
+        }
+        getPoint() {
+            return this.point;
+        }
+    }
+    function display(list) {
+        let tableString = '<table border="1" style="border-collapse: collapse; text-align: center">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>ID</th>\n' +
+            '        <th>Name</th>\n' +
+            '        <th>Birthday</th>\n' +
+            '        <th>Point</th>\n' +
+            '        <th>Edit</th>\n' +
+            '        <th>Delete</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < list.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + list[i].getId() + '</td>\n' +
+                '        <td>' + list[i].getName() + '</td>\n' +
+                '        <td>' + list[i].getBirthday() + '</td>\n' +
+                '        <td>' + list[i].getPoint() + '</td>\n' +
+                '        <td><input type="button" onclick="editStudent(' + i + ')" value="Edit"></td>\n' +
+                '        <td><input type="button" onclick="deleteStudent(' + i + ')" value="Delete"></td>\n' +
+                '    </tr>'
+        }
+        tableString += '</table>'
+        document.getElementById('result').innerHTML = tableString;
+    }
+    function editStudent(index) {
+        document.getElementById("id").value = studentList[index].getId();
+        document.getElementById("name").value = studentList[index].getName();
+        document.getElementById("birthday").value = studentList[index].getBirthday();
+        document.getElementById("point").value = studentList[index].getPoint();
+        document.getElementById("add").value = 'Edit';
+        edit = true;
+        editElement = index;
+    }
+    function deleteStudent(index) {
+        let conf = confirm("Bạn có muốn xoá sinh viên tên : " + studentList[index].getName());
+        if (conf) {
+            studentList.splice(index, 1);
+        } else {
+            alert("Bạn đã không xoá")
+        }
+        display(studentList);
+    }
+    function addNewStudent() {
+        if(!edit){
+            let id = document.getElementById("id").value;
+            let name = document.getElementById("name").value;
+            let birthday = document.getElementById("birthday").value;
+            let point = document.getElementById("point").value;
+            let newStudent = new Student(id, name, birthday, point);
+            studentList.push(newStudent);
+            display(studentList);
+            document.getElementById("id").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("birthday").value = "";
+            document.getElementById("point").value = 0;
+        } else {
+            let newId = document.getElementById("id").value;
+            let newName = document.getElementById("name").value;
+            let newBirthday = document.getElementById("birthday").value;
+            let newPoint = document.getElementById("point").value;
+            studentList[editElement].setId(newId);
+            studentList[editElement].setName(newName);
+            studentList[editElement].setBirthday(newBirthday);
+            studentList[editElement].setPoint(newPoint);
+            display(studentList);
+            document.getElementById("id").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("birthday").value = "";
+            document.getElementById("point").value = 0;
+            edit=false;
+            document.getElementById("add").value = 'Add';
+        }
+    }
+</script>
+</body>
+</html>

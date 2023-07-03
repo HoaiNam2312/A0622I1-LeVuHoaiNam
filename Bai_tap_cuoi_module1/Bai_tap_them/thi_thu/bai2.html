@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    let text = prompt("Nhập đại đi: ");
+    let arrText = xoaKhoangTrong(text);
+    alert(kiemTra(arrText));
+    function kiemTra(arrText) {
+        let mang = [];
+        if (arrText.length == 1) {
+            return 'Chuỗi chỉ có 1 từ nên không cần viết tắc';
+        } else if (arrText.length > 1) {
+            for (let i = 0; i < arrText.length; i++) {
+                mang.push(arrText[i].charAt(0).toUpperCase());
+            }
+            return mang.join("");
+        }
+
+    }
+
+    function xoaKhoangTrong(text) {
+        let b = text.split(" ");
+        let count = 0;
+        for (let i = 0; i < b.length; i++) {
+            if (b[i] === '') {
+                for (let j = i; j < b.length; j++) {
+                    if (b[j] === '') {
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+            }
+            if (count != 0) {
+                b.splice(i, count);
+                count = 0;
+            }
+        }
+        return b;
+    }
+</script>
+</body>
+</html>

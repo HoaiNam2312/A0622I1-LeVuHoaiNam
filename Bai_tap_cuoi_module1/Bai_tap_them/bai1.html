@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    function taoMang (){
+        let n = +prompt("Nhập số lượng phần tử trong mảng:");
+        let mang = [];
+        let a;
+        for (let i = 0; i < n; i++) {
+            a = +prompt(`Nhập phần tử có index là ${i}: `)
+            while (a<=10 || a>=100){
+                a = +prompt(`Vui lòng nhập số lớn hơn 10 và nhỏ hơn 100`)
+            }
+            mang.push(a);
+        }
+        return mang;
+    }
+    let arr = taoMang();
+    let tmp = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i]%10 > arr[i]/10){
+            tmp.push(arr[i]);
+        }
+    }
+    alert(tmp);
+</script>
+</body>
+</html>

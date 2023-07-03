@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<b>Bấm vào đây nếu bạn muốn thêm sổ tiết kiệm:</b>
+<input type="button" value="Add" onclick="add()" id="add">
+<p id="result">
+</p>
+<script>
+    class SoTietKiem {
+        constructor(maSo, loaiTietKiem, tenKH, cmnd, ngayMoSo, soTien) {
+            this.maSo = maSo;
+            this.loaiTietKiem = loaiTietKiem;
+            this.tenKH = tenKH;
+            this.cmnd = cmnd;
+            this.ngayMoSo = ngayMoSo;
+            this.soTien = soTien;
+        }
+
+        setMaSo(maSo) {
+            this.maSo = maSo;
+        }
+
+        setLoaiTietKiem(loaiTietKiem) {
+            this.loaiTietKiem = loaiTietKiem;
+        }
+
+        setTenKH(tenKH) {
+            this.tenKH = tenKH;
+        }
+
+        setCmnd(cmnd) {
+            this.cmnd = cmnd;
+        }
+
+        setNgayMoSo(ngayMoSo) {
+            this.ngayMoSo = ngayMoSo;
+        }
+
+        setSoTien(soTien) {
+            this.soTien = soTien;
+        }
+
+        getMaSo() {
+            return this.maSo;
+        }
+
+        getLoaiTietKiem() {
+            return this.loaiTietKiem;
+        }
+
+        getTenKH() {
+            return this.tenKH;
+        }
+
+        getCmnd() {
+            return this.cmnd;
+        }
+
+        getNgayMoSo() {
+            return this.ngayMoSo;
+        }
+
+        getSoTien() {
+            return this.soTien;
+        }
+    }
+
+    let soTietKiemList = [];
+    let so1 = new SoTietKiem('1234', '2312', 'Nam', 201815145, '23/12/2001', 200000);
+    let so2 = new SoTietKiem('2256', '2312', 'Huy', 201823789, '20/12/2001', 200000);
+    let so3 = new SoTietKiem('3245', '2312', 'Trung', 201812345, '15/12/2001', 2050000);
+    soTietKiemList.push(so1);
+    soTietKiemList.push(so2);
+    soTietKiemList.push(so3);
+    display(soTietKiemList);
+
+    function add() {
+        let maSo = prompt('Nhập mã số: ');
+        while (maSo.length > 5 || kiemTraMaSoTietKiem(maSo)) {
+            if (maSo.length > 5) {
+                maSo = prompt("Nhập mã số tối đa 5 ký tự: ");
+            }
+            if (kiemTraMaSoTietKiem(maSo)) {
+                maSo = prompt("Mã số đã bị trùng vui lòng nhập lại mã số khác:")
+            }
+        }
+        let loaiTietKiem = prompt('Nhập loại tiết kiệm: ');
+        while (loaiTietKiem.length > 10) {
+            loaiTietKiem = prompt("Nhập loại tiết kiệm tối đa 10 ký tự: ");
+        }
+        let tenKH = prompt('Nhập Họ tên khách hàng: ');
+        while (tenKH.length > 30) {
+            tenKH = prompt("Nhập Họ tên khách hàng tối đa 30 ký tự: ");
+        }
+        let cmnd = +prompt('Nhập chứng minh nhân dân: ');
+        let ngayMoSo = prompt("Nhập ngày mở số: ");
+        while (kiemTraNgay(ngayMoSo)) {
+            ngayMoSo = prompt("Vui lòng nhập lại ngày mở số (ngày/tháng/năm)");
+        }
+        let soTienGui = +prompt("Nhập số tiền gửi: ");
+        let soTietKiemMoi = new SoTietKiem(maSo, loaiTietKiem, tenKH, cmnd, ngayMoSo, soTienGui);
+        soTietKiemList.push(soTietKiemMoi);
+        display(soTietKiemList);
+    }
+
+    function kiemTraMaSoTietKiem(maSo) {
+        for (let i = 0; i < soTietKiemList.length; i++) {
+            if (maSo == soTietKiemList[i].getMaSo()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function display(soTietKiemList) {
+        let tableString = '<table border="1" style="border-collapse: collapse; text-align: center">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Mã sổ</th>\n' +
+            '        <th>Loại tiết kiệm</th>\n' +
+            '        <th>Họ tên khách hàng</th>\n' +
+            '        <th>Chứng minh nhân dân</th>\n' +
+            '        <th>Ngày mở sổ</th>\n' +
+            '        <th>Số tiền gửi (VNĐ)</th>\n' +
+            '        <th>Delete</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < soTietKiemList.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + soTietKiemList[i].getMaSo() + '</td>\n' +
+                '        <td>' + soTietKiemList[i].getLoaiTietKiem() + '</td>\n' +
+                '        <td>' + soTietKiemList[i].getTenKH() + '</td>\n' +
+                '        <td>' + soTietKiemList[i].getCmnd() + '</td>\n' +
+                '        <td>' + soTietKiemList[i].getNgayMoSo() + '</td>\n' +
+                '        <td>' + soTietKiemList[i].getSoTien().toLocaleString() + '</td>\n' +
+                '        <td><input type="button" onclick="deleteElement(' + i + ')" value="Delete"></td>\n' +
+                '    </tr>'
+        }
+        tableString += '</table>'
+        document.getElementById('result').innerHTML = tableString;
+    }
+
+    function deleteElement(index) {
+        let conf = confirm("Bạn có muốn xoá sổ tiết kiệm của khách hàng tên " + soTietKiemList[index].getTenKH());
+        if (conf) {
+            soTietKiemList.splice(index, 1);
+        } else {
+            alert("Bạn đã không xoá thành công")
+        }
+        display(soTietKiemList);
+    }
+
+    function kiemTraNgay(ngay) {
+        let thoiGian = ngay.split("/");
+        let soNgay = +thoiGian[0];
+        let soThang = +thoiGian[1];
+        let soNam = +thoiGian[2];
+        if (soNgay > 31 && soThang > 12) {
+            return true;
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

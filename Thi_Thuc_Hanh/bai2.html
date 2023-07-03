@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+
+    let tu1 = +prompt("Nhập tử số thứ nhất: ");
+    let mau1 = +prompt("Nhập mẫu sô thứ nhất: ");
+    let tu2 = +prompt("Nhập tử số thứ hai: ");
+    let mau2 = +prompt("Nhập mẫu só thứ hai: ");
+    kiemTra(tu1, mau1, tu2, mau2);
+
+    function kiemTra(tu1, mau1, tu2, mau2) {
+        if (tu1 * mau2 == tu2 * mau1) {
+            return alert("True");
+        } else {
+            return alert("False");
+        }
+    }
+</script>
+</body>
+</html>
